@@ -10,15 +10,14 @@ Welcome to Human capital's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-AMS
-===================
-.. automodule:: ams_functions
-   :members:
-
-DHR
+DHR - Functions
 ===================
 .. automodule:: dhr_functions
+   :members:
+
+AMS - Functions
+===================
+.. automodule:: ams_functions
    :members:
 
 Indices and tables
