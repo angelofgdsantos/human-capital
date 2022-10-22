@@ -175,7 +175,7 @@ def utility(age = 10, edu = 5, school = 1, ϵ = 0, δ = 0.134, μ = -9.706):
     u = ((δ*budget_constraint(age, edu, school)) - edu_cost(age, edu, μ = μ) + ϵ)*school + (δ*budget_constraint(age, edu, school))*(1 - school)
     return u
 
-def terminal_v(α1 = np.exp(5.876) , α2 = np.exp(-1.276), edu = 5):
+def terminal_v(α1 = 5.876 , α2 = -1.276, edu = 5):
     """
 
     This function measures the utility gain of completing a determined x years of education bt age 18
@@ -189,10 +189,11 @@ def terminal_v(α1 = np.exp(5.876) , α2 = np.exp(-1.276), edu = 5):
     
     """
     
-    tv = α1/(1 + np.exp(-α2*edu))
+    tv = np.exp(α1)/(1 + np.exp(-α2*edu))
     return tv
 
 def value_function(age = 10, edu = 5, school = 1, EV = np.nan, b = 0.9):
+    
   v = utility(age, edu, school) + b*EV
   return v
 

@@ -84,8 +84,7 @@ def Utility(L = 1,Tm = 30, d = 29, t = 30, g = 'treatment', I = 50, M = 10, beta
     u = beta*income_g(Tm = Tm, d = d, t = t, g = g, I = I, M = M) + (mu + eps - P)*L
     return u
 
-def VF(L = 1, t = 30, d = 29, g = 'treatment', I = 50, M = 10, probfire = 0.0, F = 0, eve_l = 0, eve_w = 0, beta = 0.03,
-       mu = 4):
+def VF(L = 1, t = 30, d = 29, g = 'treatment', I = 50, M = 10, probfire = 0.0, F = 0, eve_l = 0, eve_w = 0, beta = 0.03, mu = 4):
     """
 
     Value function 
@@ -123,12 +122,11 @@ def VF(L = 1, t = 30, d = 29, g = 'treatment', I = 50, M = 10, probfire = 0.0, F
         Maximum value between working and leisure
 
     """
-    
-        fired  = probfire*F
-        vf_l = (Utility(L=1, d = d, t = t, beta = beta, mu = mu, g=g, I = I, M = M) + eve_l)
-        vf_w = (Utility(L=0, d = d, t = t, beta = beta, mu = mu, g=g, I = I, M = M) + eve_w)
-        worker = (1 - probfire)*(vf_l*L+ vf_w*(1-L))
-        return max(fired,worker)
+    fired  = probfire*F
+    vf_l = (Utility(L=1, d = d, t = t, beta = beta, mu = mu, g=g, I = I, M = M) + eve_l)
+    vf_w = (Utility(L=0, d = d, t = t, beta = beta, mu = mu, g=g, I = I, M = M) + eve_w)
+    worker = (1 - probfire)*(vf_l*L+ vf_w*(1-L))
+    return max(fired,worker)
     
 def exp_epsilon(eps_mean = 0 , eps_sd = 1, eps_thres = 0.5):
     """
@@ -161,34 +159,34 @@ def model_solution(Tm = 30, g= 'treatment', I = 50, M = 10, beta = 0.03, mu = 4,
     Parameters
     ----------
     Tm : int, optional
-        _description_, by default 30
+        Month total days, by default 30
     g : str, optional
-        _description_, by default 'treatment'
+        Group in wich the teacher is, can be 'control' or 'treatment', by default 'treatment'
     I : int, optional
-        _description_, by default 50
+        The amount of incetive per addional day on the money, by default 50
     M : int, optional
-        _description_, by default 10
+        Days to be on the money, by default 10
     beta : float, optional
-        _description_, by default 0.03
+        Coefficient to translate income into utility, by default 0.03
     mu : int, optional
-        _description_, by default 4
+        Shifter of leisure value, by default 4
     P : int, optional
-        _description_, by default 3
-
+        Non-pecuniary cost, by default 3
+    
     Returns
     -------
     arrays
-        probs_w: Matrix of probabilities of working
+        probs_w : Matrix of probabilities of working
 
-        probs_l: Matrix of probabilities of leisure
+        probs_l : Matrix of probabilities of leisure
 
-        eps_t: Matrix of thresholds
+        eps_t : Matrix of thresholds
 
-        eve_w: Matrix of expected value of working 
+        eve_w : Matrix of expected value of working 
         
-        eve_l: Matrix of expected value of leisure 
+        eve_l : Matrix of expected value of leisure 
         
-        vf: Value function matrix
+        vf : Value function matrix
 
     """
     # Probability matrix
