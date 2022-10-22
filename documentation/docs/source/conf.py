@@ -55,6 +55,8 @@ html_theme_options = {
     "repository_url": "https://github.com/AngeloSant0s/human-capital/tree/main/documentation",
    "use_repository_button": True,
        "use_issues_button": True,
+        "navbar_end": ["theme-switcher", "navbar-icon-links"],
+
 }
 
 html_title = "Human Capital - Documentation"
