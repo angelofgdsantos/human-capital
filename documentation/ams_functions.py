@@ -1,43 +1,9 @@
-'''
-
-Packages 
-
-'''
-
 import os
-
 import matplotlib as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 
-'''
-
-Plotting settings
-
--> Simulation graphs palletes:
-    - Dark2
-    - gist_ncar
-    - gist_ncar_r
-    - gist_rainbow 
-    - gist_rainbow_r *
-    - gnuplot
-    - icefire *
-    - nipy_spectral_r *
-
-'''
-
-plt.rcParams['figure.dpi'] = 500
-plt.rcParams['savefig.dpi'] = 500
-sns.set_style('ticks')
-sns.despine(left=False, bottom=True)
-sns.set_context("paper")
-
-'''
-
-Functions
-
-'''
 def wage(age = 10, edu = 5, 
         w_ag_j = 27.6, q = -0.983 , a1 = 0.066 , a2 = 0.0166, b_w_ag = 0.883):
     """

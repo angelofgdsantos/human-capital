@@ -216,46 +216,12 @@ title="Open an issue"
               <div>
                 
   <h1>Source code for ams_functions</h1><div class="highlight"><pre>
-<span></span><span class="sd">&#39;&#39;&#39;</span>
-
-<span class="sd">Packages </span>
-
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-
+<span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="sd">Plotting settings</span>
-
-<span class="sd">-&gt; Simulation graphs palletes:</span>
-<span class="sd">    - Dark2</span>
-<span class="sd">    - gist_ncar</span>
-<span class="sd">    - gist_ncar_r</span>
-<span class="sd">    - gist_rainbow </span>
-<span class="sd">    - gist_rainbow_r *</span>
-<span class="sd">    - gnuplot</span>
-<span class="sd">    - icefire *</span>
-<span class="sd">    - nipy_spectral_r *</span>
-
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;savefig.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;paper&quot;</span><span class="p">)</span>
-
-<span class="sd">&#39;&#39;&#39;</span>
-
-<span class="sd">Functions</span>
-
-<span class="sd">&#39;&#39;&#39;</span>
 <div class="viewcode-block" id="wage"><a class="viewcode-back" href="../index.html#ams_functions.wage">[docs]</a><span class="k">def</span> <span class="nf">wage</span><span class="p">(</span><span class="n">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">edu</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
         <span class="n">w_ag_j</span> <span class="o">=</span> <span class="mf">27.6</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.983</span> <span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="mf">0.066</span> <span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="mf">0.0166</span><span class="p">,</span> <span class="n">b_w_ag</span> <span class="o">=</span> <span class="mf">0.883</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
