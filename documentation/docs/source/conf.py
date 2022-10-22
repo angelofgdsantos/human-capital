@@ -33,7 +33,9 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    "sphinx.ext.viewcode",
+
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -52,9 +54,7 @@ exclude_patterns = []
 #
 html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
-    "repository_url": "https://github.com/AngeloSant0s/human-capital/tree/main/documentation",
-   "use_repository_button": True,
-       "use_issues_button": True,
+    "github_repo": "https://github.com/AngeloSant0s/human-capital/tree/main/documentation",
         "navbar_end": ["theme-switcher", "navbar-icon-links"],
 
 }
