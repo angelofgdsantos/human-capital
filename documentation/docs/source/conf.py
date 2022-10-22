@@ -51,6 +51,19 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinx_book_theme'
+html_theme_options = {
+    "repository_url": "https://github.com/AngeloSant0s/human-capital/tree/main/documentation",
+   "use_repository_button": True,
+       "use_issues_button": True,
+}
+
+html_title = "Human Capital - Documentation"
+html_logo = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
+html_favicon = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
+html_context = {
+   # ...
+   "default_mode": "light"
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
