@@ -33,9 +33,7 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.napoleon',
-    "sphinx.ext.viewcode",
-
+    'sphinx.ext.napoleon'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -52,20 +50,16 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pydata_sphinx_theme'
+html_theme = 'sphinx_book_theme'
 html_theme_options = {
-    "github_repo": "https://github.com/AngeloSant0s/human-capital/tree/main/documentation",
-        "navbar_end": ["theme-switcher", "navbar-icon-links"],
-
+    "repository_url": "https://github.com/AngeloSant0s/human-capital/tree/main/documentation",
+   "use_repository_button": True,
+       "use_issues_button": True
 }
 
 html_title = "Human Capital - Documentation"
 html_logo = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
-html_favicon = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
-html_context = {
-   # ...
-   "default_mode": "light"
-}
+ht#ml_favicon = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
