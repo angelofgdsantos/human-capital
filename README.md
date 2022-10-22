@@ -11,12 +11,12 @@ This repository contains my codes and routines for the human capital course. In 
   
 Every replication will follow these four steps:
   
-**1. Model solution:** 
+	**1. Model solution:** 
 
-**2. Simulation:** 
+	**2. Simulation:** 
 
-**3. Estimation:** 
+	**3. Estimation:** 
 
-**4. Optmal results:** 
+	**4. Optmal results:** 
 
   
