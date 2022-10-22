@@ -16,6 +16,8 @@ Functions
 .. automodule:: ams_functions
    :members:
 
+.. automodule:: dhr_model_solution
+   :members:
 Indices and tables
 ==================
 
