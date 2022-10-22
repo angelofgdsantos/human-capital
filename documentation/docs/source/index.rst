@@ -11,14 +11,16 @@ Welcome to teste's documentation!
    :caption: Contents:
 
 
-Functions
+AMS
 ===================
 .. automodule:: ams_functions
    :members:
 
+DHR
+===================
 .. automodule:: dhr_functions
    :members:
-   
+
 Indices and tables
 ==================
 
