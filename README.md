@@ -23,4 +23,5 @@ Every replication will follow these four steps:
 The Documentation of the codes can be found [here][doc]
 
 
-[doc]: ile:///Users/angelosantos/Documents/GitHub/human-capital/documentation/docs/build/html/index.htm
+[doc]: file:///Users/angelosantos/Documents/GitHub/human-capital/documentation/docs/build/html/index.htm
+
