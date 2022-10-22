@@ -478,6 +478,32 @@ gender, can be ‘girl’ or ‘boy’. Defaults to ‘girl’.</p></li>
 </dl>
 </dd></dl>
 
+<span class="target" id="module-dhr_functions"></span><dl class="py function">
+<dt class="sig sig-object py" id="dhr_functions.income_g">
+<span class="sig-prename descclassname"><span class="pre">dhr_functions.</span></span><span class="sig-name descname"><span class="pre">income_g</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">29</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'treatment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">I</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">income</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dhr_functions.income_g" title="Permalink to this definition">#</a></dt>
+<dd><p>_summary_</p>
+<p>This functions will calculte the income for a particular teacher in the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Tm</strong> (<em>int</em><em>, </em><em>optional</em>) – Month total days, by default 30</p></li>
+<li><p><strong>d</strong> (<em>int</em><em>, </em><em>optional</em>) – Days worked before de current day (t), by default 29</p></li>
+<li><p><strong>t</strong> (<em>int</em><em>, </em><em>optional</em>) – Current day, by default 30</p></li>
+<li><p><strong>g</strong> (<em>str</em><em>, </em><em>optional</em>) – Group in wich the teacher is, can be ‘control’ or ‘treatment’, by default ‘treatment’</p></li>
+<li><p><strong>I</strong> (<em>int</em><em>, </em><em>optional</em>) – The amount of incetive per addional day on the money, by default 50</p></li>
+<li><p><strong>M</strong> (<em>int</em><em>, </em><em>optional</em>) – Days to be on the money, by default 10</p></li>
+<li><p><strong>income</strong> (<em>int</em><em>, </em><em>optional</em>) – Income in the current period (t), by default 0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This is the income of the teacher in the last day of the month.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">#</a></h1>
