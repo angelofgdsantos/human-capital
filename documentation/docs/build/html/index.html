@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to teste’s documentation! &#8212; AMS - Paper 1.0 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="#">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AMS - Paper 1.0 documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Welcome to teste’s documentation!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-ams_functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indices-and-tables">
+   Indices and tables
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Welcome to teste’s documentation!</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Welcome to teste’s documentation!
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-ams_functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indices-and-tables">
+   Indices and tables
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="welcome-to-teste-s-documentation">
+<h1>Welcome to teste’s documentation!<a class="headerlink" href="#welcome-to-teste-s-documentation" title="Permalink to this headline">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="module-ams_functions">
+<span id="functions"></span><h1>Functions<a class="headerlink" href="#module-ams_functions" title="Permalink to this headline">#</a></h1>
+<p>Packages</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="ams_functions.budget_constraint">
+<span class="sig-prename descclassname"><span class="pre">ams_functions.</span></span><span class="sig-name descname"><span class="pre">budget_constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">school</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'girl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'treatment'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.334</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_progressa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0605</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hr_day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weeks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">days_weeks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ams_functions.budget_constraint" title="Permalink to this definition">#</a></dt>
+<dd><p>This function returns the child budget constraint living in a village, conditional on working or
+going to school</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>age</strong> (<em>int</em>) – Child age.</p></li>
+<li><p><strong>edu</strong> (<em>int</em>) – Child education.</p></li>
+<li><p><strong>school</strong> (<em>int</em><em>, </em><em>optional</em>) – School or Work. Defaults to 1.</p></li>
+<li><p><strong>gender</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_. Defaults to ‘girl’.</p></li>
+<li><p><strong>group</strong> (<em>str</em><em>, </em><em>optional</em>) – In the treatment or control group. Defaults to ‘treatment’.</p></li>
+<li><p><strong>g</strong> (<em>float</em><em>, </em><em>optional</em>) – Coefficient in the utility for the grant. Defaults to 3.334.</p></li>
+<li><p><strong>b_progressa</strong> (<em>float</em><em>, </em><em>optional</em>) – Progressa dummy coefficient. Defaults to 0.0605</p></li>
+<li><p><strong>hr_day</strong> (<em>float</em><em>, </em><em>optional</em>) – Average hours worked per day. Defaults to 7.9.</p></li>
+<li><p><strong>days</strong> (<em>float</em><em>, </em><em>optional</em>) – Average days worked. Defaults to 5.1.</p></li>
+<li><p><strong>weeks</strong> (<em>int</em><em>, </em><em>optional</em>) – Average weeks worked. Defaults to 2.</p></li>
+<li><p><strong>days_weeks</strong> (<em>int</em><em>, </em><em>optional</em>) – Days in the weeks worked. Defaults to 14.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The budget constraint of the child in a particular village</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>b (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ams_functions.edu_cost">
+<span class="sig-prename descclassname"><span class="pre">ams_functions.</span></span><span class="sig-name descname"><span class="pre">edu_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mom_edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cost_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">μ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">9.706</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.291</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_mom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">0.746</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">0.983</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.007</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ams_functions.edu_cost" title="Permalink to this definition">#</a></dt>
+<dd><p>This function returns the child cost of going to school</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>age</strong> (<em>int</em><em>, </em><em>optional</em>) – Child age. Defaults to 10.</p></li>
+<li><p><strong>mom_edu</strong> (<em>int</em><em>, </em><em>optional</em>) – Mother’s education. Defaults to 1.</p></li>
+<li><p><strong>edu</strong> (<em>int</em><em>, </em><em>optional</em>) – Child education. Defaults to 5.</p></li>
+<li><p><strong>cost_sec</strong> (<em>float</em><em>, </em><em>optional</em>) – Cost. Defaults to 9.5.</p></li>
+<li><p><strong>pri</strong> (<em>int</em><em>, </em><em>optional</em>) – If the child is attending primary school. Defaults to 1.</p></li>
+<li><p><strong>μ</strong> (<em>float</em><em>,</em><em>optional</em>) – Shifter coefficient for the child. Defaults to -9.706.</p></li>
+<li><p><strong>b_age</strong> (<em>float</em><em>, </em><em>optional</em>) – Age coefficient. Defaults to 2.291.</p></li>
+<li><p><strong>b_mom</strong> (<em>float</em><em>,</em><em>optional</em>) – Mother background coefficient. Defaults to -0.746.</p></li>
+<li><p><strong>b_edu</strong> (<em>float</em><em>,</em><em>optional</em>) – Education coefficient. Defaults to -0.983.</p></li>
+<li><p><strong>b_sec</strong> (<em>float</em><em>,</em><em>optional</em>) – Secondary education coefficient. Defaults to 0.007.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cost of going to school for the child</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>cost (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ams_functions.grant">
+<span class="sig-prename descclassname"><span class="pre">ams_functions.</span></span><span class="sig-name descname"><span class="pre">grant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'girl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ams_functions.grant" title="Permalink to this definition">#</a></dt>
+<dd><p>This function aims to return the payment received by a child based on the payment schedule
+defined for PROGRESSA (Table 1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edu</strong> (<em>int</em><em>, </em><em>optional</em>) – Child Education. Defaults to 5.</p></li>
+<li><p><strong>gender</strong> (<em>str</em><em>, </em><em>optional</em>) – Child gender. The program has different payment schedules by
+gender, can be ‘girl’ or ‘boy’. Defaults to ‘girl’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The amount payed for the child</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>g (int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ams_functions.terminal_v">
+<span class="sig-prename descclassname"><span class="pre">ams_functions.</span></span><span class="sig-name descname"><span class="pre">terminal_v</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">α1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">356.38086340313265</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">α2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.27915167692210985</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ams_functions.terminal_v" title="Permalink to this definition">#</a></dt>
+<dd><p>This function measures the utility gain of completing a determined x years of education bt age 18</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edu</strong> (<em>int</em><em>, </em><em>optional</em>) – Child education. Defaults to 5.</p></li>
+<li><p><strong>α1</strong> (<em>int</em><em>, </em><em>optional</em>) – Parameter 1. Defaults to 5.876</p></li>
+<li><p><strong>α2</strong> (<em>int</em><em>, </em><em>optional</em>) – Parameter 2. Defaults to -1.276</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Terminal value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tv (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ams_functions.utility">
+<span class="sig-prename descclassname"><span class="pre">ams_functions.</span></span><span class="sig-name descname"><span class="pre">utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">school</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ε</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">δ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.134</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">μ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">9.706</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ams_functions.utility" title="Permalink to this definition">#</a></dt>
+<dd><p>This function measures the utility gain for the child based on the choice of schooling or working</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>school</strong> (<em>int</em><em>, </em><em>optional</em>) – School or Work. Defaults to 1.</p></li>
+<li><p><strong>edu</strong> (<em>int</em><em>, </em><em>optional</em>) – Child education. Defaults to 5.</p></li>
+<li><p><strong>age</strong> (<em>int</em><em>, </em><em>optional</em>) – Child age. Defaults to 10.</p></li>
+<li><p><strong>g</strong> (<em>float</em><em>, </em><em>optional</em>) – Coefficient in the utility for the grant. Defaults to 3.334.</p></li>
+<li><p><strong>δ</strong> (<em>float</em><em>, </em><em>optional</em>) – Coefficient in the utility for the grant. Defaults to 0.134.</p></li>
+<li><p><strong>μ</strong> (<em>float</em><em>, </em><em>optional</em>) – Coefficient in the utility for the grant. Defaults to -9.706.</p></li>
+<li><p><strong>ϵ</strong> (<em>float</em><em>, </em><em>optional</em>) – Shock for school taste</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Utility gain from the decision</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>u (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ams_functions.wage">
+<span class="sig-prename descclassname"><span class="pre">ams_functions.</span></span><span class="sig-name descname"><span class="pre">wage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w_ag_j</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">27.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">0.983</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.066</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0166</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_w_ag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.883</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ams_functions.wage" title="Permalink to this definition">#</a></dt>
+<dd><p>This function aims to estimate the wage for the village where the child lives</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>age</strong> (<em>int</em><em>, </em><em>optional</em>) – Child age  Defaults to 10.</p></li>
+<li><p><strong>edu</strong> (<em>int</em><em>, </em><em>optional</em>) – Child education. Defaults to 5.</p></li>
+<li><p><strong>w_ag_j</strong> (<em>float</em><em>, </em><em>optional</em>) – Adults wage in the village. Defaults to 27.6.</p></li>
+<li><p><strong>q</strong> (<em>float</em><em>, </em><em>optional</em>) – Intercept. Defaults to -0.983.</p></li>
+<li><p><strong>a1</strong> (<em>float</em><em>, </em><em>optional</em>) – Age coefficient. Defaults to 0.066.</p></li>
+<li><p><strong>a2</strong> (<em>float</em><em>, </em><em>optional</em>) – Education coefficient. Defaults to 0.0166.</p></li>
+<li><p><strong>b_w_ag</strong> (<em>float</em><em>, </em><em>optional</em>) – Adults wage coefficient. Defaults to 0.0166.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This is the log wage base in the village where the child lives</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>w (float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angelo<br/>
+  
+      &copy; Copyright 2022, Angelo Santos.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
