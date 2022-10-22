@@ -59,7 +59,7 @@ html_theme_options = {
 
 html_title = "Human Capital - Documentation"
 html_logo = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
-ht#ml_favicon = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
+#html_favicon = "/Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
