@@ -20,5 +20,5 @@ Every replication will follow these four steps:
 **4. Optmal results:** 
 
 
-The Documentation of the codes can be found [here](file:///Users/angelosantos/Documents/GitHub/human-capital/documentation/docs/build/html/index.html)
+The Documentation of the codes can be found [here](file:///Users/angelosantos/Documents/GitHub/human-capital/jupyter-book/_build/html/intro.html)
 
