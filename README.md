@@ -5,6 +5,7 @@ This repository contains my codes and routines for the human capital course. In 
       
 	In this paper, the authors used a RCT that took place in India in order to study the role of financial incentive in teacher absenteeism. The authors added a structural model to the reduced form approach present in a previous paper. 
 	
+	* [Paper](papers/shr.pdf)
 	* [Codes](codes/dhr/)
   
  * **AMS: Education Choices in Mexico: Using a Structural Model and a Randomized Experiment to Evaluate PROGRESA by Orazio P. Attanasio, Costas Meghir and Ana Santiago**
