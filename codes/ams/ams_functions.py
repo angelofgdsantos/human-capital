@@ -1,8 +1,4 @@
-import os
-import matplotlib as plt
 import numpy as np
-import pandas as pd
-import seaborn as sns
 
 def wage(age = 10, edu = 5, 
         w_ag_j = 27.6, q = -0.983 , a1 = 0.066 , a2 = 0.0166, b_w_ag = 0.883):
