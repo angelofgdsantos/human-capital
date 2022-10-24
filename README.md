@@ -10,6 +10,7 @@ This repository contains my codes and routines for the human capital course. In 
   
  * **AMS: Education Choices in Mexico: Using a Structural Model and a Randomized Experiment to Evaluate PROGRESA by Orazio P. Attanasio, Costas Meghir and Ana Santiago**
  
+	* [Paper](papers/ams.pdf) 
  	* [Codes](codes/ams/)
       
 	In this paper, the authors uses the PROGRESSA progam, that took in place in Mexico, to evaluate the impact of the program in the school choice. PROGRESSA is the first conditional cash transfer program established in the world. 
