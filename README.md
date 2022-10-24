@@ -16,15 +16,5 @@ This repository contains my codes and routines for the human capital course. In 
       
 	In this paper, the authors uses the PROGRESSA progam, that took in place in Mexico, to evaluate the impact of the program in the school choice. PROGRESSA is the first conditional cash transfer program established in the world. 
   
-Every replication will follow these four steps:
-  
-**1. Model solution:** 
-
-**2. Simulation:** 
-
-**3. Estimation:** 
-
-**4. Optmal results:** 
-
-
+## External links
 The Documentation of the codes can be found [here](https://angelosant0s.github.io/human-capital/) 
