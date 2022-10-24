@@ -30,3 +30,17 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+sphinx:
+#  config:
+#    html_theme: pydata_sphinx_theme   
+  extra_extensions:
+    - 'sphinx.ext.viewcode'
+    - sphinx.ext.napoleon
+
+# To parse latex codes in the html 
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
