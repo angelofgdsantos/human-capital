@@ -20,4 +20,4 @@ Every replication will follow these four steps:
 **4. Optmal results:** 
 
 
-The Documentation of the codes can be found [here](docs/index.html)
+The Documentation of the codes can be found [here](https://angelosant0s.github.io/human-capital/)
