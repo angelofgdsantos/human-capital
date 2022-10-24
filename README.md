@@ -7,6 +7,7 @@ This repository contains my codes and routines for the human capital course. In 
 	
 	* [Paper](papers/dhr.pdf)
 	* [Codes](codes/dhr/)
+	* [My Notes on the paper]
   
  * **AMS: Education Choices in Mexico: Using a Structural Model and a Randomized Experiment to Evaluate PROGRESA by Orazio P. Attanasio, Costas Meghir and Ana Santiago**
  
