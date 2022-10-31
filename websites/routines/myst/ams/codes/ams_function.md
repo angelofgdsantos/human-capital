@@ -1,6 +1,31 @@
+---
+jupytext:
+  cell\_metadata\_filter: -all
+  formats: md:myst
+  text\_representation:
+extension: .md
+format_name: myst
+format_version: 0.13
+jupytext_version: 1.11.5
+kernelspec:
+  display\_name: Python 3
+  language: python
+  name: python3
+---
+
+# Functions
+
+
+These are the packages that you will need to run the functions defined here. We will call this file using ams.func sintax in the following routines.
+
+```{code-block} ipython3
 import numpy as np
 from numba import njit
+```
 
+numba is a compiler developed for python and can make your codes faster. See more about it [here](https://numba.pydata.org).
+
+```{code-block} ipython3
 @njit
 def wage(age = 10, edu = 5, 
         w_ag_j = 27.6, q = -0.983 , a1 = 0.066 , a2 = 0.0166, b_w_ag = 0.883):
@@ -311,3 +336,4 @@ def ams_solution(age_max = 10):
                 
                 vf[age-1,edu] = probs_s[age-1,edu]*eve_s[age-1,edu] + probs_w[age-1,edu]*eve_w[age-1,edu]
     return probs_w, probs_s, eps_t, eve_w, eve_s, vf
+```
