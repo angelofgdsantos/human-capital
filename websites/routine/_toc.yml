@@ -1,9 +1,0 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
-format: jb-book
-root: md/intro
-parts:
-  - caption: AMS
-    chapters:
-    - file: myst/ams/codes/ams_solution.md
