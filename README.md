@@ -16,6 +16,13 @@ This repository contains my codes and routines for the human capital course. In 
 	* [My Notes on the paper](notes/ams_notes.pdf)
       
 	In this paper, the authors uses the PROGRESSA progam, that took in place in Mexico, to evaluate the impact of the program in the school choice. PROGRESSA is the first conditional cash transfer program established in the world. 
+
+* **KW: The Career Decisions of Young Men by Michael P. Keane and Kenneth I. Wolpin**
+
+	* [Paper](papers/kw.pdf)
+	* [Codes](codes/kw/)
+    * [My Notes on the paper](notes/kw_notes.pdf)
+
   
 ## External links
 The Documentation of the codes can be found [here](https://angelosant0s.github.io/human-capital/) 
