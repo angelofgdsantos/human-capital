@@ -58,6 +58,9 @@ def grant(edu = 5, gender = 'girl'):
         
     """
     
+    '''
+    Defining the payment structure for boys and girl in 1998 1st semester
+    '''
     grant_b = {
         3 : 130,        4 : 150,        5 : 190,    6 : 260,    
         7 : 380,        8 : 400,        9 : 420
@@ -67,8 +70,9 @@ def grant(edu = 5, gender = 'girl'):
         3 : 130,        4 : 150,        5 : 190,        6 : 260,
         7 : 400,        8 : 440,        9 : 480
     }
-
-
+    '''
+    Check the gender and define the structure to get the payment (g)
+    '''
     if gender == 'girl':
         grant_payment = grant_f
     else:
@@ -263,7 +267,7 @@ def prob_progress(edu=0):
     return p
 
 @njit
-def ams_solution(age_max = 10): 
+def solution(age_max = 10): 
     # Probabilities of working
     probs_w = np.empty((age_max,age_max)) 
     probs_w[:] = np.nan         
@@ -322,4 +326,119 @@ def ams_solution(age_max = 10):
                 
                 vf[age-1,edu] = probs_s[age-1,edu]*eve_s[age-1,edu] + probs_w[age-1,edu]*eve_w[age-1,edu]
     return probs_w, probs_s, eps_t, eve_w, eve_s, vf
+
+def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, β = 0.9):
+    """
+    
+    This function simulates individuals using the AMS model solution as base
+
+    Args:
+        sim (int, optional): Number of individuals to be simulated. Defaults to 100.
+        age_start (int, optional): Starting age. Defaults to 6.
+        age_max (int, optional): Max number of years in adding to age_start (in this case 6 + 10 = 15)
+                                 15 years old is the last year simulated. Defaults to 10.
+        ϵ_mean (float, optional): Shock mean. Defaults to 0.
+        ϵ_sd   (float, optional): Shock standart deviation. Defaults to 1.
+        β      (float, optional): Discount factor. Defaults to 0.9
+    
+    Returns:
+        DataFrame: Simulated dataframe
+    """
+    probs_w, probs_s, eps_t, eve_w, eve_s, vf = solution()
+
+    # Creating matrices to store our results and create a dataframe with our individual
+    
+    # School decision
+    S_dec = np.empty((age_max,sim))
+    S_dec[:] = np.nan   
+
+    # Education level (current period)
+    ed_cur = np.empty((age_max,sim))
+    ed_cur[:] = np.nan   
+
+    # Education level (next period)
+    ed_next = np.empty((age_max,sim))
+    ed_next[:] = np.nan   
+
+    # Age 
+    age_c = np.empty((age_max,sim))
+    age_c[:] = np.nan
+
+    # Shock
+    eps = np.empty((age_max,sim))
+    eps[:] = np.nan
+
+    # Utility 
+    U = np.empty((age_max,sim))
+    U[:] = np.nan  
+
+    # Comsumption
+    C = np.empty((age_max,sim))
+    C[:] = np.nan
+    
+    # Now we will loop our simulated individuals using the probability matrices obtained using the model solution code.
+
+    for s in range(sim):
+        # All the individuals start with no education
+        edu = 0          
+        for age in range(age_max):
+            # Actual child's age
+            age_c[age,s] = age_start + age
+            ed_cur[age,s] = edu
+            
+            # Random shock to education cost
+            e_shock = np.random.logistic(loc = ϵ_mean, scale = ϵ_sd)
+            
+            # Random shock to primary education sucess  
+            e_sucess = np.random.uniform()    
+            
+            if age == age_max - 1:
+                s_ev = prob_progress(edu)*terminal_v(edu=edu+1) + (1 - prob_progress(edu))*terminal_v(edu=edu)
+                w_ev = terminal_v(edu=edu)
+            else:
+                s_ev = prob_progress(edu)*vf[age+1, edu+1] + (1 - prob_progress(edu))*vf[age+1,edu] 
+                w_ev = vf[age+1, edu]
+                
+            # Utility for choices                          
+            school = utility(age, edu, school=1, ϵ = e_shock) + β*s_ev
+            work   = utility(age, edu, school=0, ϵ = e_shock) + β*w_ev
+                    
+            # Decision that max utility for individual
+            dec = max(school, work)                                       
+            u = dec
+            if u == school:
+                if e_sucess <= prob_progress(edu):
+                    suc = 1
+                else:
+                    suc = 0
+                ed_next[age,s] = edu + suc
+                C[age,s] = budget_constraint(age, edu, school=1)
+                U[age,s] = dec
+                S_dec[age,s] = 1
+            else:
+                suc = 0
+                ed_next[age,s] = edu + suc
+                C[age,s] = budget_constraint(age, edu, school=0)
+                U[age,s] = dec
+                S_dec[age,s] = 0
+            eps[age,s] = e_shock
+            edu = edu + suc
+        
+    # Now we can use the data created to build our dataframe
+    simulated_data = []
+    for i in range(sim):
+        s = {}
+        s['id'] = i
+        s['age']  = list(range(6,16))
+        s['edu']  = list(ed_cur[:,i])
+        s['edu_next'] = list(ed_next[:,i])
+        s['School']  = list(S_dec[:,i])
+        s['eps']  = list(eps[:,i])
+        s['U']  = list(U[:,i])
+        s['C']  = list(C[:,i])
+        s = pd.DataFrame(s)
+        simulated_data.append(s)
+        
+    simulated_data = pd.concat(simulated_data, axis = 0).reset_index().drop('index', axis = 1)
+    return simulated_data
 

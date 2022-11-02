@@ -436,17 +436,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">sb</span><span class="o">/</span><span class="n">z5dkqpwn7pzchsbq06rbbm9w0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70801</span><span class="o">/</span><span class="mf">2070507018.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">ams_functions</span> <span class="k">as</span> <span class="nn">ams</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;ams_functions&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="parameters">
@@ -502,8 +491,8 @@ title="Print to PDF"
 <li><p>Repeat until the end of the loop</p></li>
 </ol>
 <p>In this case, for the last period we will use the terminal value defined as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9087c6a3-b5ef-4570-a388-930174aab353">
-<span class="eqno">(1)<a class="headerlink" href="#equation-9087c6a3-b5ef-4570-a388-930174aab353" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-081fa67f-5af3-43d6-8afb-8b2ae5325468">
+<span class="eqno">(1)<a class="headerlink" href="#equation-081fa67f-5af3-43d6-8afb-8b2ae5325468" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 V(ed_{i,18}) = \frac{\alpha_{1}}{1 + exp(-\alpha_{2}*ed_{i,18})}
 
@@ -554,11 +543,69 @@ V(ed_{i,18}) = \frac{\alpha_{1}}{1 + exp(-\alpha_{2}*ed_{i,18})}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.99999993,        nan,        nan,        nan,        nan,
+               nan,        nan,        nan,        nan,        nan],
+       [0.99999884, 0.99999981,        nan,        nan,        nan,
+               nan,        nan,        nan,        nan,        nan],
+       [0.99997971, 0.99999692, 0.99999955,        nan,        nan,
+               nan,        nan,        nan,        nan,        nan],
+       [0.99962732, 0.99994308, 0.99999232, 0.99999898,        nan,
+               nan,        nan,        nan,        nan,        nan],
+       [0.99586383, 0.99880728, 0.99984954, 0.99998211, 0.99999649,
+               nan,        nan,        nan,        nan,        nan],
+       [0.91581254, 0.98644322, 0.9962496 , 0.99962788, 0.9999358 ,
+        0.99998729,        nan,        nan,        nan,        nan],
+       [0.65754572, 0.76395663, 0.96031838, 0.98826779, 0.99857002,
+        0.99975688, 0.99994754,        nan,        nan,        nan],
+       [0.33117145, 0.39518156, 0.55636764, 0.91813627, 0.94320286,
+        0.99389726, 0.9989383 , 0.99971736,        nan,        nan],
+       [0.13441563, 0.15878852, 0.11884147, 0.7362356 , 0.67868231,
+        0.76872596, 0.97157708, 0.99372576, 0.99781425,        nan],
+       [0.05324222, 0.05684499, 0.03267233, 0.43056996, 0.28367671,
+        0.27255018, 0.50621805, 0.88952229, 0.94513499, 0.97851892]])
+</pre></div>
+</div>
+</div>
 </div>
 <p>The EV matrix is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[154.2996938 ,          nan,          nan,          nan,
+                 nan,          nan,          nan,          nan,
+                 nan,          nan],
+       [147.40631343, 165.27423062,          nan,          nan,
+                 nan,          nan,          nan,          nan,
+                 nan,          nan],
+       [142.41339016, 160.14706687, 179.02221917,          nan,
+                 nan,          nan,          nan,          nan,
+                 nan,          nan],
+       [139.62337579, 157.12161177, 175.85698874, 195.86431707,
+                 nan,          nan,          nan,          nan,
+                 nan,          nan],
+       [139.31015202, 156.54370737, 175.01510424, 194.87866649,
+        211.0367933 ,          nan,          nan,          nan,
+                 nan,          nan],
+       [141.18076829, 158.80179566, 176.88834836, 196.46108271,
+        212.47273586, 228.6402713 ,          nan,          nan,
+                 nan,          nan],
+       [146.3594149 , 163.55689397, 182.03683495, 201.05416816,
+        216.74777283, 232.76714143, 248.15710453,          nan,
+                 nan,          nan],
+       [153.3799503 , 171.87520601, 189.96149747, 209.48071548,
+        224.37003875, 240.03721847, 255.27493485, 268.60861758,
+                 nan,          nan],
+       [161.33329164, 181.63603512, 201.23849672, 220.60613972,
+        236.52013511, 251.09686622, 265.88547942, 279.05383333,
+        289.06793576,          nan],
+       [169.66802391, 192.06435084, 213.670688  , 233.8340728 ,
+        251.59177304, 267.19573071, 280.76515423, 293.43892839,
+        303.18467998, 311.39752683]])
 </pre></div>
 </div>
 </div>

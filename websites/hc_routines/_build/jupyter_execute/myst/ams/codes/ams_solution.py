@@ -26,7 +26,7 @@ import ams_functions as ams
 # 
 # To start our solution, we need to determine the parameters. The names here can be a little bit confusion, but the `age_max` indicate how many adding yeas the child can study. This means that we are simulated children that are 6 years old and can study until they are 16.
 
-# In[ ]:
+# In[2]:
 
 
 age_start = 6
@@ -35,7 +35,7 @@ age_max   = 10
 
 # Before the model solution loop, we need to create empty matrices to store our results. I commented the code so you can see what is the matrix about.
 
-# In[ ]:
+# In[3]:
 
 
 # Probabilities of working
@@ -83,7 +83,7 @@ vf[:] = np.nan
 # 
 # This gives the value of having an specific level of education in the last period
 
-# In[ ]:
+# In[4]:
 
 
 for age in range(age_max,-1,-1):
@@ -122,7 +122,7 @@ for age in range(age_max,-1,-1):
 
 # Let's some results. The probability of going to school matrix looks like this:
 
-# In[ ]:
+# In[5]:
 
 
 probs_s
@@ -130,7 +130,7 @@ probs_s
 
 # The EV matrix is:
 
-# In[ ]:
+# In[6]:
 
 
 vf
@@ -138,7 +138,7 @@ vf
 
 # Using our function file, you can use the following code to run the loop we just saw
 
-# In[ ]:
+# In[7]:
 
 
 probs_w, probs_s, eps_t, eve_w, eve_s, vf = ams.solution()

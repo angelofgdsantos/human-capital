@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Simulation" href="ams_simulation.html" />
     <link rel="prev" title="Functions" href="ams_functions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -129,6 +130,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Model solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ams_simulation.html">
+   Simulation
   </a>
  </li>
 </ul>
@@ -485,8 +491,8 @@ title="Print to PDF"
 <li><p>Repeat until the end of the loop</p></li>
 </ol>
 <p>In this case, for the last period we will use the terminal value defined as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-214b3ade-17dd-4f88-aae4-0b710ce5d405">
-<span class="eqno">(1)<a class="headerlink" href="#equation-214b3ade-17dd-4f88-aae4-0b710ce5d405" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-081fa67f-5af3-43d6-8afb-8b2ae5325468">
+<span class="eqno">(1)<a class="headerlink" href="#equation-081fa67f-5af3-43d6-8afb-8b2ae5325468" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 V(ed_{i,18}) = \frac{\alpha_{1}}{1 + exp(-\alpha_{2}*ed_{i,18})}
 
@@ -607,7 +613,7 @@ V(ed_{i,18}) = \frac{\alpha_{1}}{1 + exp(-\alpha_{2}*ed_{i,18})}
 <p>Using our function file, you can use the following code to run the loop we just saw</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_s</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_s</span><span class="p">,</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">ams</span><span class="o">.</span><span class="n">ams_solution</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_s</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_s</span><span class="p">,</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">ams</span><span class="o">.</span><span class="n">solution</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -648,6 +654,13 @@ V(ed_{i,18}) = \frac{\alpha_{1}}{1 + exp(-\alpha_{2}*ed_{i,18})}
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Functions</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="ams_simulation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simulation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

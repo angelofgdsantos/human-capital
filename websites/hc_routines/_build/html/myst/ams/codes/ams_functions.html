@@ -415,6 +415,9 @@ title="Print to PDF"
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Defining the payment structure for boys and girl in 1998 1st semester</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">grant_b</span> <span class="o">=</span> <span class="p">{</span>
         <span class="mi">3</span> <span class="p">:</span> <span class="mi">130</span><span class="p">,</span>        <span class="mi">4</span> <span class="p">:</span> <span class="mi">150</span><span class="p">,</span>        <span class="mi">5</span> <span class="p">:</span> <span class="mi">190</span><span class="p">,</span>    <span class="mi">6</span> <span class="p">:</span> <span class="mi">260</span><span class="p">,</span>    
         <span class="mi">7</span> <span class="p">:</span> <span class="mi">380</span><span class="p">,</span>        <span class="mi">8</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span>        <span class="mi">9</span> <span class="p">:</span> <span class="mi">420</span>
@@ -424,8 +427,9 @@ title="Print to PDF"
         <span class="mi">3</span> <span class="p">:</span> <span class="mi">130</span><span class="p">,</span>        <span class="mi">4</span> <span class="p">:</span> <span class="mi">150</span><span class="p">,</span>        <span class="mi">5</span> <span class="p">:</span> <span class="mi">190</span><span class="p">,</span>        <span class="mi">6</span> <span class="p">:</span> <span class="mi">260</span><span class="p">,</span>
         <span class="mi">7</span> <span class="p">:</span> <span class="mi">400</span><span class="p">,</span>        <span class="mi">8</span> <span class="p">:</span> <span class="mi">440</span><span class="p">,</span>        <span class="mi">9</span> <span class="p">:</span> <span class="mi">480</span>
     <span class="p">}</span>
-
-
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Check the gender and define the structure to get the payment (g)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;girl&#39;</span><span class="p">:</span>
         <span class="n">grant_payment</span> <span class="o">=</span> <span class="n">grant_f</span>
     <span class="k">else</span><span class="p">:</span>
@@ -621,7 +625,7 @@ title="Print to PDF"
     <span class="k">return</span> <span class="n">p</span>
 
 <span class="nd">@njit</span>
-<span class="k">def</span> <span class="nf">ams_solution</span><span class="p">(</span><span class="n">age_max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span> 
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">age_max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span> 
     <span class="c1"># Probabilities of working</span>
     <span class="n">probs_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">age_max</span><span class="p">))</span> 
     <span class="n">probs_w</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
@@ -680,6 +684,121 @@ title="Print to PDF"
                 
                 <span class="n">vf</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span> <span class="o">=</span> <span class="n">probs_s</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span><span class="o">*</span><span class="n">eve_s</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span> <span class="o">+</span> <span class="n">probs_w</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span><span class="o">*</span><span class="n">eve_w</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_s</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_s</span><span class="p">,</span> <span class="n">vf</span>
+
+<span class="k">def</span> <span class="nf">simulation</span><span class="p">(</span><span class="n">sim</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">age_start</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">age_max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">ϵ_mean</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ϵ_sd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">β</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This function simulates individuals using the AMS model solution as base</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sim (int, optional): Number of individuals to be simulated. Defaults to 100.</span>
+<span class="sd">        age_start (int, optional): Starting age. Defaults to 6.</span>
+<span class="sd">        age_max (int, optional): Max number of years in adding to age_start (in this case 6 + 10 = 15)</span>
+<span class="sd">                                 15 years old is the last year simulated. Defaults to 10.</span>
+<span class="sd">        ϵ_mean (float, optional): Shock mean. Defaults to 0.</span>
+<span class="sd">        ϵ_sd   (float, optional): Shock standart deviation. Defaults to 1.</span>
+<span class="sd">        β      (float, optional): Discount factor. Defaults to 0.9</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame: Simulated dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_s</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_s</span><span class="p">,</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">solution</span><span class="p">()</span>
+
+    <span class="c1"># Creating matrices to store our results and create a dataframe with our individual</span>
+    
+    <span class="c1"># School decision</span>
+    <span class="n">S_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">S_dec</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>   
+
+    <span class="c1"># Education level (current period)</span>
+    <span class="n">ed_cur</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">ed_cur</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>   
+
+    <span class="c1"># Education level (next period)</span>
+    <span class="n">ed_next</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">ed_next</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>   
+
+    <span class="c1"># Age </span>
+    <span class="n">age_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">age_c</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># Shock</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">eps</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># Utility </span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">U</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  
+
+    <span class="c1"># Comsumption</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">sim</span><span class="p">))</span>
+    <span class="n">C</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+    <span class="c1"># Now we will loop our simulated individuals using the probability matrices obtained using the model solution code.</span>
+
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sim</span><span class="p">):</span>
+        <span class="c1"># All the individuals start with no education</span>
+        <span class="n">edu</span> <span class="o">=</span> <span class="mi">0</span>          
+        <span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">age_max</span><span class="p">):</span>
+            <span class="c1"># Actual child&#39;s age</span>
+            <span class="n">age_c</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">age_start</span> <span class="o">+</span> <span class="n">age</span>
+            <span class="n">ed_cur</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">edu</span>
+            
+            <span class="c1"># Random shock to education cost</span>
+            <span class="n">e_shock</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">logistic</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="n">ϵ_mean</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">ϵ_sd</span><span class="p">)</span>
+            
+            <span class="c1"># Random shock to primary education sucess  </span>
+            <span class="n">e_sucess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span>    
+            
+            <span class="k">if</span> <span class="n">age</span> <span class="o">==</span> <span class="n">age_max</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">s_ev</span> <span class="o">=</span> <span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">)</span><span class="o">*</span><span class="n">terminal_v</span><span class="p">(</span><span class="n">edu</span><span class="o">=</span><span class="n">edu</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">))</span><span class="o">*</span><span class="n">terminal_v</span><span class="p">(</span><span class="n">edu</span><span class="o">=</span><span class="n">edu</span><span class="p">)</span>
+                <span class="n">w_ev</span> <span class="o">=</span> <span class="n">terminal_v</span><span class="p">(</span><span class="n">edu</span><span class="o">=</span><span class="n">edu</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">s_ev</span> <span class="o">=</span> <span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">)</span><span class="o">*</span><span class="n">vf</span><span class="p">[</span><span class="n">age</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">edu</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">))</span><span class="o">*</span><span class="n">vf</span><span class="p">[</span><span class="n">age</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span> 
+                <span class="n">w_ev</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">age</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">edu</span><span class="p">]</span>
+                
+            <span class="c1"># Utility for choices                          </span>
+            <span class="n">school</span> <span class="o">=</span> <span class="n">utility</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">edu</span><span class="p">,</span> <span class="n">school</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ϵ</span> <span class="o">=</span> <span class="n">e_shock</span><span class="p">)</span> <span class="o">+</span> <span class="n">β</span><span class="o">*</span><span class="n">s_ev</span>
+            <span class="n">work</span>   <span class="o">=</span> <span class="n">utility</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">edu</span><span class="p">,</span> <span class="n">school</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ϵ</span> <span class="o">=</span> <span class="n">e_shock</span><span class="p">)</span> <span class="o">+</span> <span class="n">β</span><span class="o">*</span><span class="n">w_ev</span>
+                    
+            <span class="c1"># Decision that max utility for individual</span>
+            <span class="n">dec</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">school</span><span class="p">,</span> <span class="n">work</span><span class="p">)</span>                                       
+            <span class="n">u</span> <span class="o">=</span> <span class="n">dec</span>
+            <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="n">school</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">e_sucess</span> <span class="o">&lt;=</span> <span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">):</span>
+                    <span class="n">suc</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">suc</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">ed_next</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">edu</span> <span class="o">+</span> <span class="n">suc</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">budget_constraint</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">edu</span><span class="p">,</span> <span class="n">school</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">U</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">dec</span>
+                <span class="n">S_dec</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">suc</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">ed_next</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">edu</span> <span class="o">+</span> <span class="n">suc</span>
+                <span class="n">C</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">budget_constraint</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">edu</span><span class="p">,</span> <span class="n">school</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">U</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">dec</span>
+                <span class="n">S_dec</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">eps</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">e_shock</span>
+            <span class="n">edu</span> <span class="o">=</span> <span class="n">edu</span> <span class="o">+</span> <span class="n">suc</span>
+        
+    <span class="c1"># Now we can use the data created to build our dataframe</span>
+    <span class="n">simulated_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sim</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;edu&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ed_cur</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;edu_next&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ed_next</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;School&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">S_dec</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;eps&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eps</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">U</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">s</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">C</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">simulated_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        
+    <span class="n">simulated_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">simulated_data</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">simulated_data</span>
 </pre></div>
 </div>
 </div>
