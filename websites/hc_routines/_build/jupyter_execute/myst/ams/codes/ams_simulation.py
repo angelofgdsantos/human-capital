@@ -1,34 +1,66 @@
-'''
+#!/usr/bin/env python
+# coding: utf-8
 
-Packages
+# # Simulation
+# ## Packages
 
-'''
+# In[1]:
+
+
 import numpy as np
 import pandas as pd
 import ams_functions as ams
-'''
 
-Using the model solution to get the probability matrices.
 
-'''
+# ## Using the Model solution 
+# Using the model solution we can get the expected value matrix to use in our simulation. We will use this to calculate the utility for working and going to school.
+
+# In[ ]:
+
+
 probs_w, probs_s, eps_t, eve_w, eve_s, vf = ams.solution()
-'''
 
-We need to define how many individuals we are going to simulate and other parameters for our simulation.
 
-'''
+# ## Simulation
+# ### Parameters 
+# 
+# We need to define how many individuals we are going to simulate and other parameters for our simulation. The parameters are:
+# 
+# - Shock mean (`ϵ_mean`)
+# - Shock Standart deviation (`ϵ_sd`)
+# - The age that we start simulating children choices (`age_start`)
+# - The maximum additional years to `age_start`. In our case we will `age_start` + `age_max` = 15, 15 is the last year that we are going to simulate. 
+# - Number of individual (`sim`)
+# - Discount factor (`β`)
+# 
+# About the shock, we are considering a logistic distribution.
+
+# In[ ]:
+
+
 np.random.seed(1996)
-ϵ_mean  = 0
-ϵ_sd    = 1
+ϵ_mean    = 0
+ϵ_sd      = 1
 age_start = 6
 age_max   = 10
 sim       = 100
 β         = 0.9
-'''
 
-Creating matrices to store our results and create a dataframe with our individual.
 
-'''
+# ### Creating Matrices
+# Now, we need to create the matrices to store our results and create a dataframe with our individual. We will store the following:
+# 
+# - Schooling decision
+# - Education Level in the current period
+# - Education Level in the next period
+# - Age of the child
+# - Shock received
+# - Utility obtained from decision
+# - Consumption obtained from decision
+
+# In[ ]:
+
+
 # School decision
 S_dec = np.empty((age_max,sim))
 S_dec[:] = np.nan   
@@ -56,13 +88,16 @@ U[:] = np.nan
 # Comsumption
 C = np.empty((age_max,sim))
 C[:] = np.nan
-'''
-
-Now we will loop our simulated individuals using the probability matrices obtained using the model solution code.
-
-'''
 
 
+# ### Simulating the individuals
+# 
+# Now we will loop our simulated individuals using the vf matrix obtained using the model solution code. The loop is commented in order to understand the steps.
+
+# In[ ]:
+
+
+# Loop to simulate the individuals
 for s in range(sim):
     # All the individuals start with no education
     edu = 0          
@@ -108,12 +143,13 @@ for s in range(sim):
             S_dec[age,s] = 0
         eps[age,s] = e_shock
         edu = edu + suc
-        
-'''
 
-Now we can use the data created to build our dataframe
 
-'''
+# Now we can use the data created to build our dataframe.
+
+# In[ ]:
+
+
 simulated_data = []
 for i in range(sim):
     s = {}
@@ -127,13 +163,18 @@ for i in range(sim):
     s['C']  = list(C[:,i])
     s = pd.DataFrame(s)
     simulated_data.append(s)
-    
+
 simulated_data = pd.concat(simulated_data, axis = 0).reset_index().drop('index', axis = 1)
+print(simulated_data)
 
-'''
 
-We also can replicate this using the function from the ams_functions file
+# We also can replicate this using the function from the ams_functions file, `ams.simulation()`, wich is this routine collapsed in the function.
 
-'''
+# In[ ]:
+
 
 sim = ams.simulation()
+print(sim)
+
+
+# You can see that the dataframes are equal.

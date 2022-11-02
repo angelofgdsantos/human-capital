@@ -141,4 +141,4 @@ vf
 Using our function file, you can use the following code to run the loop we just saw
 
 ```{code-cell} ipython3
-probs_w, probs_s, eps_t, eve_w, eve_s, vf = ams.ams_solution()
+probs_w, probs_s, eps_t, eve_w, eve_s, vf = ams.solution()

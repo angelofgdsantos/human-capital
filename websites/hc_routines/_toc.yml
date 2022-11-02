@@ -8,3 +8,4 @@ parts:
     chapters:
     - file: myst/ams/codes/ams_functions.md
     - file: myst/ams/codes/ams_solution.md
+    - file: myst/ams/codes/ams_simulation.md
