@@ -8,10 +8,10 @@ import pandas as pd
 import ams_functions as ams
 '''
 
-Using the model solution to get the probability matrices.
+Using the model solution to get the vf matrices.
 
 '''
-probs_w, probs_s, eps_t, eve_w, eve_s, vf = ams.solution()
+vf = ams.solution()[5]
 '''
 
 We need to define how many individuals we are going to simulate and other parameters for our simulation.
@@ -137,3 +137,28 @@ We also can replicate this using the function from the ams_functions file
 '''
 
 sim = ams.simulation()
+
+'''
+
+Now we will simulate the probabilities based on our simulated data
+
+'''
+probs_s = ams.solution()[1]
+prob_sim = np.zeros((age_max,age_max))
+prob_sim[0,0] = 1 # Everybody is the same in the begining 
+
+for age in range(1,age_max):
+    for edu in range(age):
+        prob_mass = prob_sim[age-1,edu] # Mass of students in age 0 and with edu 1
+        prob_s_age_edu = probs_s[age-1,edu] # P(L = 0 | t = t-1, d = d)
+        if np.isnan(prob_s_age_edu):    # Maybe is not possible, but I defined as nan in the model solution
+                prob_s_age_edu = 0
+        else:
+            pass
+        prob_sim[age,d]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
+        prob_sim[age,d+1] = prob_sim[age,edu+1] + prob_s_age_edu*prob_mass   # Same as (214) but now with prob to work
+
+        
+            
+        
+

@@ -179,7 +179,7 @@ def value_function(age = 10, edu = 5, school = 1, EV = np.nan, b = 0.9):
         b (float, optional): discount. Defaults to 0.9.
 
     Returns:
-        float: valu function value   
+        float: value function value   
     """    
     v = utility(age, edu, school) + b*EV
     return v
@@ -254,6 +254,24 @@ def prob_progress(edu=0):
 
 @njit
 def solution(age_max = 10): 
+    """
+    
+    This function is the model solution 
+
+    Args:
+        age_max (int, optional): This is the max additional years of education. In this function, this will determine the matrices dimension.
+                                 Defaults to 10.
+
+    Returns:
+        Tuple: A tuple with the following:
+               - probs_w: Probability matrix of working (index 0)
+               - probs_s: Probability matrix of going to school (index 1)
+               - eps_t: The matrix with the threshold for deciding between schooling and working (index 2)
+               - eve_w: EV matrix for working (index 3)
+               - eve_s: EV matrix for schooling (index 4)
+               - vf: Value function matrix (index 5)
+
+    """
     # Probabilities of working
     probs_w = np.empty((age_max,age_max)) 
     probs_w[:] = np.nan         
@@ -330,7 +348,7 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
     Returns:
         DataFrame: Simulated dataframe
     """
-    probs_w, probs_s, eps_t, eve_w, eve_s, vf = solution()
+    vf = solution()[5]
 
     # Creating matrices to store our results and create a dataframe with our individual
     
