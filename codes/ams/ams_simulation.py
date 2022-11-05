@@ -155,8 +155,8 @@ for age in range(1,age_max):
                 prob_s_age_edu = 0
         else:
             pass
-        prob_sim[age,d]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
-        prob_sim[age,d+1] = prob_sim[age,edu+1] + prob_s_age_edu*prob_mass   # Same as (214) but now with prob to work
+        prob_sim[age,edu]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
+        prob_sim[age,edu+1] = prob_sim[age,edu+1] + prob_s_age_edu*prob_mass   # Same as (214) but now with prob to work
 
         
             

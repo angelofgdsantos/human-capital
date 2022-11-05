@@ -7,14 +7,13 @@ def ϵ(age = 16):
     ϵ_vec = [1,1,1,1,1]
     return ϵ_vec
 
-@njit    
 def R_m(age = 16, edu = 12,
         X   = np.array([1,1,1,0,0]),
-        end = np.array([1,1,1,1,1]),
-        e1  = np.array([1,1,1,0,0]), 
-        e2  = np.array([1,1,1,0,0]), 
-        e3  = np.array([1,1,1,0,0]),
-        tc1 = 1, tc2 = 2,
+        end = np.array([8.8043,9.85,9.5,43948,6887]),
+        e1  = np.array([0.0938,0.0189,0.0443,0,0]), 
+        e2  = np.array([0.117,0.0674,0.3391,0,0]), 
+        e3  = np.array([0.0077,0.1424,-2.99,0,0]),
+        tc1 = 2983, tc2 = 26357,
         work = np.array([1,1,1,0,0])):
     
     ed = np.array([0,0,0,edu,0])
@@ -32,6 +31,6 @@ def reward(D = [0,0,0,0,1]):
     return rew
 
 @njit
-def VF(age, δ = 0.78, EV = np.nan):
+def VF(age, δ = 0.787, EV = np.nan):
     U = reward(R_m(age)) + δ*EV
     return U
