@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Functions &#8212; Human Capital</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Model solution" href="dhr_solution.html" />
+    <link rel="prev" title="Wecolme to the Human Capital!" href="../../md/intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Human Capital</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../md/intro.html">
+                    Wecolme to the Human Capital!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DHR
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_solution.html">
+   Model solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_simulation.html">
+   Simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_estimation.html">
+   Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_calibration.html">
+   Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_policy.html">
+   Policy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AMS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ams/ams_functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ams/ams_solution.html">
+   Model solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ams/ams_simulation.html">
+   Simulation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/AngeloSant0s/human-capital/master?urlpath=tree/docs/myst/dhr/dhr_functions.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/AngeloSant0s/human-capital"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/AngeloSant0s/human-capital/issues/new?title=Issue%20on%20page%20%2Fmyst/dhr/dhr_functions.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/myst/dhr/dhr_functions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/myst/dhr/dhr_functions.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<p>These are the packages that you will need to run the functions defined here. We will call this file using <code class="docutils literal notranslate"><span class="pre">dhr.func</span></code> sintax in the following routines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">njit</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>numba is a compiler developed for python and can make your codes faster. See more about it <a class="reference external" href="https://numba.pydata.org">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">income_g</span><span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">29</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">income</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Tm</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    This functions will calculte the income for a particular teacher in the model </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Tm : int, optional</span>
+<span class="sd">        Month total days, by default 30</span>
+<span class="sd">    d : int, optional</span>
+<span class="sd">        Days worked before de current day (t), by default 29</span>
+<span class="sd">    t : int, optional</span>
+<span class="sd">        Current day, by default 30</span>
+<span class="sd">    g : str, optional</span>
+<span class="sd">        Group in wich the teacher is, can be &#39;control&#39; or &#39;treatment&#39;, by default &#39;treatment&#39;</span>
+<span class="sd">    I : int, optional</span>
+<span class="sd">        The amount of incetive per addional day on the money, by default 50</span>
+<span class="sd">    M : int, optional</span>
+<span class="sd">        Days to be on the money, by default 10</span>
+<span class="sd">    income : int, optional</span>
+<span class="sd">        Income in the current period (t), by default 0</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        This is the income of the teacher in the last day of the month.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">!=</span> <span class="n">Tm</span><span class="p">:</span>
+        <span class="n">income</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">g</span> <span class="o">==</span> <span class="s1">&#39;control&#39;</span><span class="p">:</span>
+            <span class="n">income</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">if</span> <span class="n">g</span> <span class="o">==</span><span class="s1">&#39;treatment&#39;</span><span class="p">:</span>
+            <span class="n">income</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">+</span> <span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">d</span><span class="o">-</span><span class="n">M</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">income</span>
+
+<span class="k">def</span> <span class="nf">Utility</span><span class="p">(</span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">Tm</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">29</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    Utility function</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    L : int, optional</span>
+<span class="sd">        Leisure decision, by default 1</span>
+<span class="sd">    Tm : int, optional</span>
+<span class="sd">        Month total days, by default 30</span>
+<span class="sd">    d : int, optional</span>
+<span class="sd">        Days worked before de current day (t), by default 29</span>
+<span class="sd">    t : int, optional</span>
+<span class="sd">        Current day, by default 30</span>
+<span class="sd">    g : str, optional</span>
+<span class="sd">        Group in wich the teacher is, can be &#39;control&#39; or &#39;treatment&#39;, by default &#39;treatment&#39;</span>
+<span class="sd">    I : int, optional</span>
+<span class="sd">        The amount of incetive per addional day on the money, by default 50</span>
+<span class="sd">    M : int, optional</span>
+<span class="sd">        Days to be on the money, by default 10</span>
+<span class="sd">    beta : float, optional</span>
+<span class="sd">        Coefficient to translate income into utility, by default 0.03</span>
+<span class="sd">    mu : int, optional</span>
+<span class="sd">        Shifter of leisure value, by default 4</span>
+<span class="sd">    P : int, optional</span>
+<span class="sd">        Non-pecuniary cost, by default 3</span>
+<span class="sd">    eps : int, optional</span>
+<span class="sd">        Schock to leisure, by default 0</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Utility from leisure decision</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">beta</span><span class="o">*</span><span class="n">income_g</span><span class="p">(</span><span class="n">Tm</span> <span class="o">=</span> <span class="n">Tm</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mu</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">-</span> <span class="n">P</span><span class="p">)</span><span class="o">*</span><span class="n">L</span>
+    <span class="k">return</span> <span class="n">u</span>
+
+<span class="k">def</span> <span class="nf">VF</span><span class="p">(</span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">29</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">probfire</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">eve_l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">eve_w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Value function </span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    L : int, optional</span>
+<span class="sd">        Leisure decision, by default 1</span>
+<span class="sd">    t : int, optional</span>
+<span class="sd">        Current day, by default 30</span>
+<span class="sd">    d : int, optional</span>
+<span class="sd">        Days worked before de current day (t), by default 29</span>
+<span class="sd">    g : str, optional</span>
+<span class="sd">        Group in wich the teacher is, can be &#39;control&#39; or &#39;treatment&#39;, by default &#39;treatment&#39;</span>
+<span class="sd">    I : int, optional</span>
+<span class="sd">        The amount of incetive per addional day on the money, by default 50</span>
+<span class="sd">    M : int, optional</span>
+<span class="sd">        Days to be on the money, by default 10</span>
+<span class="sd">    probfire : float, optional</span>
+<span class="sd">        Probability of getting fired, by default 0.0</span>
+<span class="sd">    F : int, optional</span>
+<span class="sd">        _description_, by default 0</span>
+<span class="sd">    eve_l : int, optional</span>
+<span class="sd">        Expected value of leisure, by default 0</span>
+<span class="sd">    eve_w : int, optional</span>
+<span class="sd">        Expected value of working, by default 0</span>
+<span class="sd">    beta : float, optional</span>
+<span class="sd">        Coefficient to translate income into utility, by default 0.03</span>
+<span class="sd">    mu : int, optional</span>
+<span class="sd">        Shifter of leisure value, by default 4</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Maximum value between working and leisure</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fired</span>  <span class="o">=</span> <span class="n">probfire</span><span class="o">*</span><span class="n">F</span>
+    <span class="n">vf_l</span> <span class="o">=</span> <span class="p">(</span><span class="n">Utility</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">eve_l</span><span class="p">)</span>
+    <span class="n">vf_w</span> <span class="o">=</span> <span class="p">(</span><span class="n">Utility</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="n">eve_w</span><span class="p">)</span>
+    <span class="n">worker</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">probfire</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">vf_l</span><span class="o">*</span><span class="n">L</span><span class="o">+</span> <span class="n">vf_w</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">L</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">fired</span><span class="p">,</span><span class="n">worker</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">exp_epsilon</span><span class="p">(</span><span class="n">eps_mean</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">,</span> <span class="n">eps_sd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">eps_thres</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Truncated value</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    eps_mean : int, optional</span>
+<span class="sd">        mean, by default 0</span>
+<span class="sd">    eps_sd : int, optional</span>
+<span class="sd">        standart deviation, by default 1</span>
+<span class="sd">    eps_thres : float, optional</span>
+<span class="sd">        Threshold calculated by the proba, by default 0.5</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Expected value for the truncated distribution</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">e_exp</span> <span class="o">=</span> <span class="n">eps_mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">eps_sd</span><span class="o">*</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">((</span><span class="n">eps_thres</span><span class="o">-</span><span class="n">eps_mean</span><span class="p">)</span><span class="o">/</span><span class="n">eps_sd</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">eps_thres</span><span class="o">-</span><span class="n">eps_mean</span><span class="p">)</span><span class="o">/</span><span class="n">eps_sd</span><span class="p">)));</span>
+    <span class="k">return</span> <span class="n">e_exp</span>
+
+<span class="k">def</span> <span class="nf">model_solution</span><span class="p">(</span><span class="n">Tm</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Solves the model</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Tm : int, optional</span>
+<span class="sd">        Month total days, by default 30</span>
+<span class="sd">    g : str, optional</span>
+<span class="sd">        Group in wich the teacher is, can be &#39;control&#39; or &#39;treatment&#39;, by default &#39;treatment&#39;</span>
+<span class="sd">    I : int, optional</span>
+<span class="sd">        The amount of incetive per addional day on the money, by default 50</span>
+<span class="sd">    M : int, optional</span>
+<span class="sd">        Days to be on the money, by default 10</span>
+<span class="sd">    beta : float, optional</span>
+<span class="sd">        Coefficient to translate income into utility, by default 0.03</span>
+<span class="sd">    mu : int, optional</span>
+<span class="sd">        Shifter of leisure value, by default 4</span>
+<span class="sd">    P : int, optional</span>
+<span class="sd">        Non-pecuniary cost, by default 3</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    arrays</span>
+<span class="sd">        probs_w : Matrix of probabilities of working</span>
+
+<span class="sd">        probs_l : Matrix of probabilities of leisure</span>
+
+<span class="sd">        eps_t : Matrix of thresholds</span>
+
+<span class="sd">        eve_w : Matrix of expected value of working </span>
+<span class="sd">        </span>
+<span class="sd">        eve_l : Matrix of expected value of leisure </span>
+<span class="sd">        </span>
+<span class="sd">        vf : Value function matrix</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Probability matrix</span>
+    <span class="n">probs_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+    <span class="n">probs_w</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+    
+    <span class="n">probs_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+    <span class="n">probs_l</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+    
+    <span class="c1"># Threshold matrix</span>
+    <span class="n">eps_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+    <span class="n">eps_t</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+    
+    <span class="c1"># Expected values matrix for L = 1 </span>
+    <span class="n">eve_w</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+    <span class="n">eve_w</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>           
+    
+    <span class="c1"># Expected values matrix</span>
+    <span class="n">eve_l</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+    <span class="n">eve_l</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>           
+    
+    <span class="c1"># Value function matrix</span>
+    <span class="n">vf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+    <span class="n">vf</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  
+        
+    <span class="c1">#  SOLVING THE MODEL</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Tm</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>            
+                <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+                    <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">beta</span><span class="o">*</span><span class="p">(</span><span class="n">income_g</span><span class="p">(</span><span class="n">Tm</span><span class="o">=</span><span class="n">Tm</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span>  <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">)</span> <span class="o">-</span> \
+                                    <span class="n">income_g</span><span class="p">(</span><span class="n">Tm</span><span class="o">=</span><span class="n">Tm</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span>  <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">))</span><span class="o">-</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">P</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">P</span><span class="p">)</span>
+                <span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+                <span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span>
+                
+                <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+                    <span class="n">eve_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">exp_epsilon</span><span class="p">(</span><span class="n">eps_thres</span> <span class="o">=</span> <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+                    <span class="n">eve_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">eve_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">exp_epsilon</span><span class="p">(</span><span class="n">eps_thres</span> <span class="o">=</span> <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+                    <span class="n">eve_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                
+                <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">VF</span><span class="p">(</span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span>  <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">eve_l</span> <span class="o">=</span> <span class="n">eve_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]))</span> \
+                          <span class="o">+</span> <span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">VF</span><span class="p">(</span><span class="n">L</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span>  <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">eve_w</span> <span class="o">=</span> <span class="n">eve_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]))</span> 
+    <span class="k">return</span> <span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_l</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_l</span><span class="p">,</span> <span class="n">vf</span>
+
+<span class="k">def</span> <span class="nf">simulate_data</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">gs</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Tm</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">sim_nb</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">eps_mean</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">eps_sd</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This functions simulate individuals using the model solution</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        theta (list, optional): This is a list with two elements, beta and mu, respectively. Defaults to [0.03,4].</span>
+<span class="sd">        M (int, optional): Days to be on money. Defaults to 10.</span>
+<span class="sd">        I (int, optional): Financial Incentive. Defaults to 50.</span>
+<span class="sd">        gs (int, optional): Dummy to simulate control and treatment. Defaults to 0.</span>
+<span class="sd">        P (int, optional): Non pecuniary cost to leisure. Defaults to 3.</span>
+<span class="sd">        Tm (int, optional): Total days in the month. Defaults to 30.</span>
+<span class="sd">        sim_nb (int, optional): Number of simulated individuals. Defaults to 100.</span>
+<span class="sd">        eps_mean (int, optional): Shock mean. Defaults to 0.</span>
+<span class="sd">        eps_sd (int, optional): Shock Standart error. Defaults to 1.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple: Returns a tuple with:</span>
+<span class="sd">           - d_means: Means from datset, treatment and control. This is used for estimation.</span>
+<span class="sd">           - L_dec: Leisure decisions</span>
+<span class="sd">           - d_dec: Days worked in t</span>
+<span class="sd">           - d1_dec: Days worked in t+1</span>
+<span class="sd">           - e_dec: Realized shocks faced</span>
+<span class="sd">           - u_dec: Utility matrix due decisions</span>
+<span class="sd">           - groups_data: Dictionary for control and treatment simulation results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1996</span><span class="p">)</span>
+    <span class="n">d_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">d_means</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>   
+    <span class="n">groups_data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">gs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;control&#39;</span><span class="p">]</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>     
+        <span class="n">groups_data</span><span class="p">[</span><span class="s1">&#39;control&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>     
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>     
+    <span class="k">for</span> <span class="n">gnb</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">model_solution</span><span class="p">(</span><span class="n">beta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="n">I</span><span class="p">)</span>
+
+
+        <span class="c1">############################################################################### PARAMETERS - SIMULATION</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        This simulation will create two tables:</span>
+<span class="sd">            - Days worked in t (d)</span>
+<span class="sd">            - Leisure decsion (L)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1">############################################################################### SIMULATION</span>
+        <span class="c1"># CREATE MATRICES</span>
+        <span class="n">L_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">sim_nb</span><span class="p">))</span>
+        <span class="n">L_dec</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+        <span class="n">d_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">sim_nb</span><span class="p">))</span>
+        <span class="n">d_dec</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+        <span class="n">d1_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">sim_nb</span><span class="p">))</span>
+        <span class="n">d1_dec</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+        <span class="n">e_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">sim_nb</span><span class="p">))</span>
+        <span class="n">e_dec</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+        <span class="n">u_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">sim_nb</span><span class="p">))</span>
+        <span class="n">u_dec</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+        <span class="c1"># LOOP TO SIMULATION</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sim_nb</span><span class="p">):</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+                <span class="n">d_dec</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">!=</span> <span class="mi">29</span><span class="p">:</span>
+                    <span class="n">e_shock</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">eps_mean</span><span class="p">,</span> <span class="n">eps_sd</span><span class="p">)</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="n">l</span> <span class="o">=</span> <span class="n">e_shock</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">P</span> <span class="o">+</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span>
+                    <span class="n">dec</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+                    <span class="n">u</span> <span class="o">=</span> <span class="n">dec</span>
+                    <span class="k">if</span> <span class="n">dec</span> <span class="o">==</span> <span class="n">w</span><span class="p">:</span>
+                        <span class="n">dec</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">dec</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">dec</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">d</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">e_shock</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">eps_mean</span><span class="p">,</span> <span class="n">eps_sd</span><span class="p">)</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">income_g</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="n">I</span><span class="p">)</span>
+                    <span class="n">l</span> <span class="o">=</span> <span class="n">e_shock</span> <span class="o">+</span> <span class="n">income_g</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="n">I</span><span class="p">)</span>
+                    <span class="n">dec</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+                    <span class="n">u</span> <span class="o">=</span> <span class="n">dec</span>
+                    <span class="k">if</span> <span class="n">dec</span> <span class="o">==</span> <span class="n">w</span><span class="p">:</span>
+                        <span class="n">dec</span> <span class="o">=</span> <span class="mi">0</span> 
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">dec</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">dec</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">d</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="n">L_dec</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">dec</span>
+                <span class="n">d1_dec</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+                <span class="n">e_dec</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">e_shock</span>
+                <span class="n">u_dec</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="n">d_mean</span> <span class="o">=</span> <span class="n">d1_dec</span><span class="p">[</span><span class="mi">29</span><span class="p">,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">d_means</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">gnb</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_mean</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;L_dec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">L_dec</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;d_dec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_dec</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;d1_dec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d1_dec</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;e_dec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e_dec</span>
+        <span class="n">groups_data</span><span class="p">[</span><span class="n">g</span><span class="p">][</span><span class="s1">&#39;u_dec&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_dec</span>
+    <span class="k">return</span> <span class="n">d_means</span><span class="p">,</span> <span class="n">L_dec</span><span class="p">,</span> <span class="n">d_dec</span><span class="p">,</span> <span class="n">d1_dec</span><span class="p">,</span> <span class="n">e_dec</span><span class="p">,</span> <span class="n">u_dec</span><span class="p">,</span> <span class="n">groups_data</span>
+
+<span class="k">def</span> <span class="nf">dataframe_simulation</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">sim_nb</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This function put the simulation in datasets</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sim_nb (int, optional): Number of individuals. Defaults to 100.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict: Dictionary with dataframe simulated for treatment and control</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">datas</span> <span class="o">=</span> <span class="n">simulate_data</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span>  <span class="n">gs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sim_nb</span><span class="o">=</span><span class="n">sim_nb</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span><span class="s1">&#39;control&#39;</span><span class="p">]:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">datas</span><span class="p">[</span><span class="n">g</span><span class="p">]</span>
+        <span class="n">simulated_data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sim_nb</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;d+1&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;d1_dec&#39;</span><span class="p">][:,</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;d_dec&#39;</span><span class="p">][:,</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;L&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;L_dec&#39;</span><span class="p">][:,</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;eps&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;e_dec&#39;</span><span class="p">][:,</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">s</span><span class="p">[</span><span class="s1">&#39;U&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;u_dec&#39;</span><span class="p">][:,</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">simulated_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>    
+        <span class="n">simulated_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">simulated_data</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">datasets</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="o">=</span> <span class="n">simulated_data</span>
+    <span class="k">return</span> <span class="n">datasets</span>
+
+<span class="k">def</span> <span class="nf">discrete_probs</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">Tm</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This function creates a matrix with the probabilities </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        theta (list, optional): This is a list with two elements, beta and mu, respectively. Defaults to [0.03,4].</span>
+<span class="sd">        Tm (int, optional): Total days in the month. Defaults to 30.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame: Matrix with probabilities</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">probs_w</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model_solution</span><span class="p">(</span><span class="n">beta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">)</span>
+    <span class="n">prob_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span>
+    <span class="n">prob_sim</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#P(t = 1, d = 0)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tm</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="n">prob_mass</span> <span class="o">=</span> <span class="n">prob_sim</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="c1"># Mass of teacher in t = t-1, d = d</span>
+            <span class="n">prob_w_t_d</span> <span class="o">=</span> <span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="c1"># P(L = 0 | t = t-1, d = d)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">prob_w_t_d</span><span class="p">):</span>    <span class="c1"># Maybe is not possible, but I defined as nan in the model solution</span>
+                <span class="n">prob_w_t_d</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">prob_sim</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="p">]</span>   <span class="o">=</span> <span class="n">prob_sim</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">prob_w_t_d</span><span class="p">)</span><span class="o">*</span><span class="n">prob_mass</span> <span class="c1"># Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure</span>
+            <span class="n">prob_sim</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob_sim</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">prob_w_t_d</span><span class="o">*</span><span class="n">prob_mass</span>   <span class="c1"># Same as (214) but now with prob to work</span>
+    <span class="k">return</span> <span class="n">prob_sim</span>
+
+<span class="k">def</span> <span class="nf">Log_likelihood</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">b_guess</span><span class="p">,</span> <span class="n">mu_guess</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This function does the log likehood iteration for the estimation using the parameters grid</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (_type_): Data simulated for the group of choice</span>
+<span class="sd">        b_guess (_type_): Lower bound for beta guess</span>
+<span class="sd">        mu_guess (_type_): Lower bound for mu guess</span>
+<span class="sd">        n (int, optional): Size of the grid. Defaults to 10.</span>
+<span class="sd">        group (str, optional): Group of simulation. Defaults to &#39;treatment&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dataframe: Dataframe with parameters and log likelihood result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">b_guess</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mu_guess</span><span class="p">:</span>
+            <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_l</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="o">=</span> <span class="n">model_solution</span><span class="p">(</span><span class="n">beta</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">);</span>
+            <span class="n">logL</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
+                <span class="n">L</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;L&#39;</span><span class="p">])</span>
+                <span class="n">likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">L</span><span class="p">)</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span><span class="o">*</span><span class="n">L</span>
+                <span class="n">logL</span> <span class="o">=</span> <span class="n">logL</span> <span class="o">+</span> <span class="n">likelihood</span> 
+            <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+            <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
+            <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;likelihood&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">logL</span>
+            <span class="n">log_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+            <span class="n">sim</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">log_values</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">opt_likelihood</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This is the Log likelihood used for the optimizer</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (_type_): Dataset used</span>
+<span class="sd">        theta (_type_): Initial guess</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Log likelihood result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_l</span>  <span class="o">=</span> <span class="n">model_solution</span><span class="p">(</span><span class="n">beta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="n">logL</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;L&#39;</span><span class="p">])</span>
+        <span class="n">likelihood</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">L</span><span class="p">)</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span><span class="o">*</span><span class="n">L</span>
+        <span class="n">logL</span> <span class="o">=</span> <span class="n">logL</span> <span class="o">+</span> <span class="n">likelihood</span> 
+    <span class="k">return</span> <span class="o">-</span><span class="n">logL</span>
+
+<span class="k">def</span> <span class="nf">root_calibration</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="n">d_mean_c0</span> <span class="o">=</span> <span class="mf">5.2</span>
+    <span class="n">d_mean_t0</span> <span class="o">=</span> <span class="mf">20.82</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This function find the parameters that calibrate the model</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        theta (_type_): Initial values for the parameters</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List: Parameters combination in a list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">means</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="o">=</span> <span class="n">simulate_data</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">gs</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">means</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">(</span> <span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">d_mean_c0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">d_mean_t0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">f</span>
+
+<span class="k">def</span> <span class="nf">exp_cost_days</span><span class="p">(</span><span class="n">Tm</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.03</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    </span>
+<span class="sd">    This function creates a DataFame with the expected cost conditional on the expected days worked by teachers</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Tm (int, optional): Total number of days in the month. Defaults to 30.</span>
+<span class="sd">        beta (float, optional): Parameter value of beta. Defaults to 0.03.</span>
+<span class="sd">        mu (int, optional): Parameter value of mu. Defaults to 4.</span>
+<span class="sd">        M (int, optional): Days to be on money. Defaults to 10.</span>
+<span class="sd">        I (int, optional): Financial incentive for additional day worked. Defaults to 50.</span>
+<span class="sd">        g (str, optional): Group simulated. Defaults to &#39;treatment&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        DataFrame: Returns a data frame with costs conditional on expected days worked </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">probs_w</span> <span class="o">=</span> <span class="n">model_solution</span><span class="p">(</span><span class="n">Tm</span><span class="o">=</span><span class="n">Tm</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="n">discrete_probs</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="p">[</span><span class="n">beta</span><span class="p">,</span> <span class="n">mu</span><span class="p">],</span> <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">)</span>
+    <span class="n">incomes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span>
+    <span class="n">incomes</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="n">ec</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+        <span class="n">dic</span> <span class="o">=</span><span class="p">{}</span>
+        <span class="n">pw</span> <span class="o">=</span> <span class="p">(</span><span class="n">income_g</span><span class="p">(</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">day</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="mi">29</span><span class="p">,</span><span class="n">day</span><span class="p">]</span> <span class="o">*</span><span class="n">probs_w</span><span class="p">[</span><span class="mi">29</span><span class="p">,</span><span class="n">day</span><span class="p">])</span>
+        <span class="n">pl</span> <span class="o">=</span> <span class="p">(</span><span class="n">income_g</span><span class="p">(</span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="n">I</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">g</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">day</span><span class="p">))</span><span class="o">*</span> <span class="p">(</span><span class="n">probs</span><span class="p">[</span><span class="mi">29</span><span class="p">,</span><span class="n">day</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">probs_w</span><span class="p">[</span><span class="mi">29</span><span class="p">,</span><span class="n">day</span><span class="p">]))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">pw</span> <span class="o">+</span> <span class="n">pl</span>
+        <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">day</span>
+        <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+        <span class="n">ec</span> <span class="o">=</span> <span class="n">ec</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="n">dic</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Expected Cost&#39;</span>
+    <span class="n">dic</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ec</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frame</span>
+
+<span class="k">def</span> <span class="nf">countour_data</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">):</span>    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">num</span> <span class="o">=</span> <span class="n">n1</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="n">n2</span><span class="p">)</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="n">Ip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n2</span><span class="p">,</span><span class="n">n1</span><span class="p">))</span>
+    <span class="n">Mp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n2</span><span class="p">,</span><span class="n">n1</span><span class="p">))</span>
+    <span class="n">Cp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n2</span><span class="p">,</span><span class="n">n1</span><span class="p">))</span>
+    <span class="n">Dp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n2</span><span class="p">,</span><span class="n">n1</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">inb</span><span class="p">,</span><span class="n">incentive</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">Ip</span><span class="p">[</span><span class="n">inb</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">incentive</span>
+    <span class="k">for</span> <span class="n">mn</span><span class="p">,</span><span class="n">money</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">money</span><span class="p">)</span>
+        <span class="n">Mp</span><span class="p">[:,</span><span class="n">mn</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">-</span> <span class="n">money</span>
+
+
+    <span class="k">for</span> <span class="n">inb</span><span class="p">,</span><span class="n">incentive</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">mn</span><span class="p">,</span><span class="n">money</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Combination &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n1</span><span class="o">*</span><span class="n">n2</span><span class="p">))</span>
+            <span class="n">fr</span> <span class="o">=</span> <span class="n">exp_cost_days</span><span class="p">(</span><span class="n">M</span><span class="o">=</span><span class="n">money</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="n">incentive</span><span class="p">)</span>
+            <span class="n">exc</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fr</span><span class="p">[</span><span class="s1">&#39;Day&#39;</span><span class="p">]</span> <span class="o">==</span><span class="s1">&#39;Expected Cost&#39;</span><span class="p">][</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">exd</span> <span class="o">=</span> <span class="n">simulate_data</span><span class="p">(</span><span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">M</span><span class="o">=</span><span class="n">money</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="n">incentive</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">Cp</span><span class="p">[</span><span class="n">inb</span><span class="p">,</span><span class="n">mn</span><span class="p">]</span> <span class="o">=</span> <span class="n">exc</span>
+            <span class="n">Dp</span><span class="p">[</span><span class="n">inb</span><span class="p">,</span><span class="n">mn</span><span class="p">]</span> <span class="o">=</span> <span class="n">exd</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">Mp</span><span class="p">,</span> <span class="n">Ip</span><span class="p">,</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Dp</span>
+
+<span class="c1"># PLOTTING</span>
+<span class="k">def</span> <span class="nf">simulation_plot</span><span class="p">(</span><span class="n">s_plot</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">nb_sim</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="s1">&#39;nipy_spectral_r&#39;</span><span class="p">,</span> <span class="n">sim_nb</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">99</span><span class="p">],</span> <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">):</span>
+    <span class="n">d_means</span><span class="p">,</span> <span class="n">L_dec</span><span class="p">,</span> <span class="n">d_dec</span><span class="p">,</span> <span class="n">d1_dec</span><span class="p">,</span> <span class="n">e_dec</span><span class="p">,</span> <span class="n">u_dec</span><span class="p">,</span> <span class="n">_</span><span class="o">=</span> <span class="n">simulate_data</span><span class="p">()</span>
+    <span class="n">sims</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sim_nb</span><span class="p">:</span>    
+        <span class="n">plot_frame</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">plot_frame</span><span class="p">[</span><span class="s1">&#39;Day of month (t)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">))</span>
+        <span class="n">plot_frame</span><span class="p">[</span><span class="s1">&#39;Days worked until t (d)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">d_dec</span><span class="p">[:,</span><span class="n">s</span><span class="p">])</span>
+        <span class="n">sim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">plot_frame</span><span class="p">)</span>
+        <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;Simulation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="n">sims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+    
+    <span class="n">sims</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">sims</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span> <span class="s1">&#39;nipy_spectral_r&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Simulation Histories&#39;</span><span class="p">)</span>    
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;simulation_histories_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">s_plot</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_sim_control.png&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;simulation_histories_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">s_plot</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_sim_control.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/Users/angelosantos/Documents/GitHub/human-capital/images/dhr/&#39;</span><span class="o">+</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">t_graphs</span><span class="p">(</span><span class="n">t_plot</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="s1">&#39;nipy_spectral_r&#39;</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">29</span><span class="p">],</span> <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;treatment&#39;</span><span class="p">):</span>
+    <span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_l</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_l</span><span class="p">,</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">model_solution</span><span class="p">()</span>
+    <span class="n">prob_sim</span> <span class="o">=</span> <span class="n">discrete_probs</span><span class="p">()</span>
+    <span class="n">t_frames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ts</span><span class="p">:</span>
+        <span class="n">plot_frame</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">plot_frame</span><span class="p">[</span><span class="s1">&#39;Days worked so far&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">plot_frame</span><span class="p">[</span><span class="s1">&#39;EV (t,d)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,:</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">plot_frame</span><span class="p">[</span><span class="s1">&#39;Probability of days worked contional on t&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">prob_sim</span><span class="p">[</span><span class="n">t</span><span class="p">,:</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">plot_frame</span><span class="p">[</span><span class="s1">&#39;Probability of working given (t,d)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="p">,:</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">sim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">plot_frame</span><span class="p">)</span>
+        <span class="n">sim</span><span class="p">[</span><span class="s1">&#39;Last day of month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="n">t_frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span> 
+    
+    <span class="c1"># PLot EVs</span>
+    <span class="n">ts_frames</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">t_frames</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span> <span class="s1">&#39;nipy_spectral_r&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;EV(t,d), x=days-attended, z=days-attended-so-far&#39;</span><span class="p">)</span>    
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;EVs.png&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;EVs_control.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/Users/angelosantos/Documents/GitHub/human-capital/images/dhr/&#39;</span><span class="o">+</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="c1"># Plot Probability of days worked</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span> <span class="s1">&#39;nipy_spectral_r&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Prob(d|t), x=days-attended, y=probability&#39;</span><span class="p">)</span>    
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;prob_days_worked.png&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;prob_days_worked_control.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/Users/angelosantos/Documents/GitHub/human-capital/images/dhr/&#39;</span><span class="o">+</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="c1"># Plot Probability of working</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">ts_frames</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span> <span class="s1">&#39;nipy_spectral_r&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Prob(L=0|t,d), x=days-attended, y=probability&#39;</span><span class="p">)</span>    
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">group</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;prob_working.png&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;prob_working_control.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/Users/angelosantos/Documents/GitHub/human-capital/images/dhr/&#39;</span><span class="o">+</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">contours_plots</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">cool</span><span class="p">,</span> <span class="n">ap</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;cost&#39;</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">contours</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">ap</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Expected Cost Contour&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;M = Days to be on money&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;I = Financial incentive&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contours</span><span class="p">)</span>
+    <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;expected_&#39;</span><span class="o">+</span><span class="n">var</span><span class="o">+</span><span class="s1">&#39;_shades.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/Users/angelosantos/Documents/GitHub/human-capital/images/dhr&#39;</span><span class="o">+</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">contours</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Expected &#39;</span><span class="o">+</span><span class="n">var</span><span class="o">+</span> <span class="s1">&#39; Contour&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;30 - M = Days out of money&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;I = Financial incentive&#39;</span><span class="p">)</span>
+    <span class="n">plotname</span> <span class="o">=</span> <span class="s1">&#39;expected_&#39;</span><span class="o">+</span><span class="n">var</span><span class="o">+</span><span class="s1">&#39;_curves.png&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;/Users/angelosantos/Documents/GitHub/human-capital/images/dhr&#39;</span><span class="o">+</span><span class="n">plotname</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./myst/dhr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../md/intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Wecolme to the Human Capital!</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="dhr_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Model solution</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angelo Santos<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

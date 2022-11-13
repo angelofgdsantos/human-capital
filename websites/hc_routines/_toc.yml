@@ -4,8 +4,16 @@
 format: jb-book
 root: md/intro
 parts:
+  - caption: DHR
+    chapters:
+    - file: myst/dhr/dhr_functions.md
+    - file: myst/dhr/dhr_solution.md
+    - file: myst/dhr/dhr_simulation.md
+    - file: myst/dhr/dhr_estimation.md
+    - file: myst/dhr/dhr_calibration.md
+    - file: myst/dhr/dhr_policy.md
   - caption: AMS
     chapters:
-    - file: myst/ams/codes/ams_functions.md
-    - file: myst/ams/codes/ams_solution.md
-    - file: myst/ams/codes/ams_simulation.md
+    - file: myst/ams/ams_functions.md
+    - file: myst/ams/ams_solution.md
+    - file: myst/ams/ams_simulation.md

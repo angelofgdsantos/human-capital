@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Model solution &#8212; Human Capital</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Simulation" href="dhr_simulation.html" />
+    <link rel="prev" title="Functions" href="dhr_functions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Human Capital</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../md/intro.html">
+                    Wecolme to the Human Capital!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DHR
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Model solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_simulation.html">
+   Simulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_estimation.html">
+   Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_calibration.html">
+   Calibration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dhr_policy.html">
+   Policy
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  AMS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ams/ams_functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ams/ams_solution.html">
+   Model solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ams/ams_simulation.html">
+   Simulation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/AngeloSant0s/human-capital/master?urlpath=tree/docs/myst/dhr/dhr_solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/AngeloSant0s/human-capital"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/AngeloSant0s/human-capital/issues/new?title=Issue%20on%20page%20%2Fmyst/dhr/dhr_solution.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/myst/dhr/dhr_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/myst/dhr/dhr_solution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameters">
+   Parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-matrices">
+   Creating matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-solution-loop">
+   Model solution loop
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Model solution</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameters">
+   Parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-matrices">
+   Creating matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-solution-loop">
+   Model solution loop
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="model-solution">
+<h1>Model solution<a class="headerlink" href="#model-solution" title="Permalink to this heading">#</a></h1>
+<p>In this exercise, we will go through the model solution.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember that <code class="docutils literal notranslate"><span class="pre">dhr.func</span></code> is the sintax that calls the file with the functions see before.</p>
+</div>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">dhr_functions</span> <span class="k">as</span> <span class="nn">dhr</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<p>Define parameters of the model. The parameters are:</p>
+<ul class="simple">
+<li><p>Group we are simulating</p></li>
+<li><p>Discount factor</p></li>
+<li><p>Total days in the month</p></li>
+<li><p>Value for utility of leisure</p></li>
+<li><p>Non pecuniary cost of working</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;treatment&quot;</span>
+<span class="n">beta</span>  <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">Tm</span>    <span class="o">=</span> <span class="mi">30</span>
+<span class="n">mu</span>    <span class="o">=</span> <span class="mi">4</span>
+<span class="n">P</span>     <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-matrices">
+<h2>Creating matrices<a class="headerlink" href="#creating-matrices" title="Permalink to this heading">#</a></h2>
+<p>First we will create the matrices that we will fill using the model solution.
+We will store the following:</p>
+<ul class="simple">
+<li><p>Probability of working</p></li>
+<li><p>Probability of leisure</p></li>
+<li><p>Expected value of working</p></li>
+<li><p>Expected value of leisure</p></li>
+<li><p>ϵ Threshold</p></li>
+<li><p>Value function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probability matrix</span>
+<span class="n">probs_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+<span class="n">probs_w</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+<span class="n">probs_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+<span class="n">probs_l</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+<span class="c1"># Threshold matrix</span>
+<span class="n">eps_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+<span class="n">eps_t</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>         
+
+<span class="c1"># Expected values matrix for work</span>
+<span class="n">eve_w</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+<span class="n">eve_w</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>           
+
+<span class="c1"># Expected values matrix for leisure</span>
+<span class="n">eve_l</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+<span class="n">eve_l</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>           
+
+<span class="c1"># Value function matrix</span>
+<span class="n">vf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">Tm</span><span class="p">,</span><span class="n">Tm</span><span class="p">))</span> 
+<span class="n">vf</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-solution-loop">
+<h2>Model solution loop<a class="headerlink" href="#model-solution-loop" title="Permalink to this heading">#</a></h2>
+<p>The model solution is solved backward and follows these steps:</p>
+<ol class="simple">
+<li><p>Solve for the threshold that makes the value function for leisure bigger.</p></li>
+<li><p>Use the result from 1 to obtain the probability of leisure and work.</p></li>
+<li><p>Calculate the truncated distribution value for leisure</p></li>
+<li><p>Calculate the EV (expected values in the period ahead)</p></li>
+<li><p>Repeat until the end of the loop</p></li>
+</ol>
+<p>This gives the value of having an specific level of education in the last period</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Tm</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Tm</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>            
+            <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+                <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">beta</span><span class="o">*</span><span class="p">(</span><span class="n">dhr</span><span class="o">.</span><span class="n">income_g</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span> <span class="n">dhr</span><span class="o">.</span><span class="n">income_g</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span><span class="o">-</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">P</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">P</span><span class="p">)</span>
+            <span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+            <span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span>
+            
+            <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+                <span class="n">eve_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">dhr</span><span class="o">.</span><span class="n">exp_epsilon</span><span class="p">(</span><span class="n">eps_thres</span> <span class="o">=</span> <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+                <span class="n">eve_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">eve_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="n">dhr</span><span class="o">.</span><span class="n">exp_epsilon</span><span class="p">(</span><span class="n">eps_thres</span> <span class="o">=</span> <span class="n">eps_t</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+                <span class="n">eve_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            
+            <span class="n">vf</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">probs_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">dhr</span><span class="o">.</span><span class="n">VF</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">eve_l</span> <span class="o">=</span> <span class="n">eve_l</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]))</span> <span class="o">+</span> \
+            <span class="n">probs_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">dhr</span><span class="o">.</span><span class="n">VF</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">eve_w</span> <span class="o">=</span> <span class="n">eve_w</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">]))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the value function matrix</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">vf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[50.93618802         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [49.24231215 50.7366338          nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [47.55504031 49.03975976 50.53842516         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [45.88492987 47.34447042 48.8408411  50.34053375         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [44.25647039 45.65344784 47.14362665 48.64278463 50.14271603         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [42.71475105 43.97370229 45.44742013 46.94511925 48.44492953 49.94491499
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [41.30913338 42.32241379 43.7539467  45.24768455 46.74716116 48.24712039
+  49.74711755         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [40.04658066 40.73550499 42.06779028 43.55088322 45.04944339 46.54932944
+  48.04932133 49.54932084         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [38.88264083 39.26519925 40.40062109 41.85581258 43.35186637 44.85154884
+  46.35152576 47.85152433 49.35152427         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [37.76761609 37.94273316 38.77912592 40.16542745 41.65467951 43.15379756
+  44.65373208 46.15372792 47.65372771 49.15372771         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [36.67263343 36.74237612 37.25063593 38.48746035 39.95856927 41.45612898
+  42.95594389 44.45593179 45.95593117 47.45593115 48.95593115         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [35.58516308 35.61084394 35.86245392 36.84074537 38.26540814 39.75869285
+  41.25817154 42.75813653 44.25813466 45.75813459 47.25813459 48.75813459
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [34.50040067 34.5094579  34.61462655 35.26378993 36.58020474 38.0619069
+  39.5604448  41.06034382 42.56033825 44.06033804 45.56033803 47.06033803
+  48.56033803         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [33.4165936  33.41968487 33.45918145 33.8094634  34.91573095 36.36692805
+  37.86284881 39.36255873 40.86254215 42.36254149 43.86254148 45.36254148
+  46.86254148 48.36254148         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [32.33311684 32.33413267 32.34808168 32.50376585 33.30091689 34.67691526
+  36.16562579 37.66479616 39.164747   40.66474496 42.16474492 43.66474492
+  45.16474492 46.66474492 48.16474492         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [31.24975114 31.25006762 31.25477526 31.31493296 31.78538521 33.00022148
+  34.46946032 35.96710001 37.46695479 38.9669485  40.46694836 41.96694836
+  43.46694836 44.96694836 46.46694836 47.96694836         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [30.16642122 30.16651234 30.1680221  30.18934074 30.41432922 31.35725756
+  32.77626627 34.26959875 35.76917164 37.26915226 38.7691518  40.2691518
+  41.7691518  43.2691518  44.7691518  46.2691518  47.7691518          nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [29.08310204 29.08312537 29.0835759  29.09066443 29.18106399 29.78923079
+  31.09127757 32.57266626 34.07141623 35.57135672 37.07135525 38.57135525
+  40.07135525 41.57135525 43.07135525 44.57135525 46.07135525 47.57135525
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [27.99978578 27.99979076 27.99991133 28.00210803 28.03434073 28.35006678
+  29.42808327 30.87738126 32.37374565 33.87356345 35.37355869 36.87355869
+  38.37355869 39.87355869 41.37355869 42.87355869 44.37355869 45.87355869
+  47.37355869         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [26.91647019 26.91647098 26.91649818 26.91711358 26.92761181 27.06101323
+  27.81774172 29.18680867 30.67633331 32.17577758 33.67576213 35.17576213
+  36.67576213 38.17576213 39.67576213 41.17576213 42.67576213 44.17576213
+  45.67576213 47.17576213         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [25.83315471 25.83315478 25.83315939 25.83330636 25.83639854 25.88439349
+  26.31287481 27.50937012 28.97970301 30.47801564 31.97796557 33.47796557
+  34.97796557 36.47796557 37.97796557 39.47796557 40.97796557 42.47796557
+  43.97796557 45.47796557 46.97796557         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [24.74983924 24.74983924 24.74983968 24.7498664  24.75065056 24.76580651
+  24.95811824 25.86639263 27.28542182 28.78033126 30.28016902 31.78016902
+  33.28016902 34.78016902 36.28016902 37.78016902 39.28016902 40.78016902
+  42.28016902 43.78016902 45.28016902 46.78016902         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [23.66652376 23.66652376 23.66652376 23.66652655 23.66668018 23.67079516
+  23.74070066 24.30212049 25.59808722 27.08289814 28.58237246 30.08237246
+  31.58237246 33.08237246 34.58237246 36.08237246 37.58237246 39.08237246
+  40.58237246 42.08237246 43.58237246 45.08237246 46.58237246         nan
+          nan         nan         nan         nan         nan         nan]
+ [22.58320829 22.58320829 22.58320829 22.58320829 22.58322588 22.58410033
+  22.60506295 22.87453728 23.93056705 25.38627805 26.8845759  28.3845759
+  29.8845759  31.3845759  32.8845759  34.3845759  35.8845759  37.3845759
+  38.8845759  40.3845759  41.8845759  43.3845759  44.8845759  46.3845759
+          nan         nan         nan         nan         nan         nan]
+ [21.49989282 21.49989282 21.49989282 21.49989282 21.49989282 21.50000366
+  21.50490913 21.60340081 22.31478686 23.69227889 25.18677934 26.68677934
+  28.18677934 29.68677934 31.18677934 32.68677934 34.18677934 35.68677934
+  37.18677934 38.68677934 40.18677934 41.68677934 43.18677934 44.68677934
+  46.18677934         nan         nan         nan         nan         nan]
+ [20.41657735 20.41657735 20.41657735 20.41657735 20.41657735 20.41657735
+  20.41727559 20.44394505 20.80962699 22.00662916 23.48898279 24.98898279
+  26.48898279 27.98898279 29.48898279 30.98898279 32.48898279 33.98898279
+  35.48898279 36.98898279 38.48898279 39.98898279 41.48898279 42.98898279
+  44.48898279 45.98898279         nan         nan         nan         nan]
+ [19.33326188 19.33326188 19.33326188 19.33326188 19.33326188 19.33326188
+  19.33326188 19.33764816 19.46880845 20.34661132 21.79118623 23.29118623
+  24.79118623 26.29118623 27.79118623 29.29118623 30.79118623 32.29118623
+  33.79118623 35.29118623 36.79118623 38.29118623 39.79118623 41.29118623
+  42.79118623 44.29118623 45.79118623         nan         nan         nan]
+ [18.24994641 18.24994641 18.24994641 18.24994641 18.24994641 18.24994641
+  18.24994641 18.24994641 18.27702866 18.75730653 20.09338967 21.59338967
+  23.09338967 24.59338967 26.09338967 27.59338967 29.09338967 30.59338967
+  32.09338967 33.59338967 35.09338967 36.59338967 38.09338967 39.59338967
+  41.09338967 42.59338967 44.09338967 45.59338967         nan         nan]
+ [17.16663094 17.16663094 17.16663094 17.16663094 17.16663094 17.16663094
+  17.16663094 17.16663094 17.16663094 17.31878286 18.39559311 19.89559311
+  21.39559311 22.89559311 24.39559311 25.89559311 27.39559311 28.89559311
+  30.39559311 31.89559311 33.39559311 34.89559311 36.39559311 37.89559311
+  39.39559311 40.89559311 42.39559311 43.89559311 45.39559311         nan]
+ [16.08331547 16.08331547 16.08331547 16.08331547 16.08331547 16.08331547
+  16.08331547 16.08331547 16.08331547 16.08331547 16.69779656 18.19779656
+  19.69779656 21.19779656 22.69779656 24.19779656 25.69779656 27.19779656
+  28.69779656 30.19779656 31.69779656 33.19779656 34.69779656 36.19779656
+  37.69779656 39.19779656 40.69779656 42.19779656 43.69779656 45.19779656]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, I will run the above loop using the model solution function, which will create the same matrices</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probs_w</span><span class="p">,</span> <span class="n">probs_l</span><span class="p">,</span> <span class="n">eps_t</span><span class="p">,</span> <span class="n">eve_w</span><span class="p">,</span> <span class="n">eve_l</span><span class="p">,</span> <span class="n">vf</span> <span class="o">=</span> <span class="n">dhr</span><span class="o">.</span><span class="n">model_solution</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[50.93618802         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [49.24231215 50.7366338          nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [47.55504031 49.03975976 50.53842516         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [45.88492987 47.34447042 48.8408411  50.34053375         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [44.25647039 45.65344784 47.14362665 48.64278463 50.14271603         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [42.71475105 43.97370229 45.44742013 46.94511925 48.44492953 49.94491499
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [41.30913338 42.32241379 43.7539467  45.24768455 46.74716116 48.24712039
+  49.74711755         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [40.04658066 40.73550499 42.06779028 43.55088322 45.04944339 46.54932944
+  48.04932133 49.54932084         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [38.88264083 39.26519925 40.40062109 41.85581258 43.35186637 44.85154884
+  46.35152576 47.85152433 49.35152427         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [37.76761609 37.94273316 38.77912592 40.16542745 41.65467951 43.15379756
+  44.65373208 46.15372792 47.65372771 49.15372771         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [36.67263343 36.74237612 37.25063593 38.48746035 39.95856927 41.45612898
+  42.95594389 44.45593179 45.95593117 47.45593115 48.95593115         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [35.58516308 35.61084394 35.86245392 36.84074537 38.26540814 39.75869285
+  41.25817154 42.75813653 44.25813466 45.75813459 47.25813459 48.75813459
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [34.50040067 34.5094579  34.61462655 35.26378993 36.58020474 38.0619069
+  39.5604448  41.06034382 42.56033825 44.06033804 45.56033803 47.06033803
+  48.56033803         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [33.4165936  33.41968487 33.45918145 33.8094634  34.91573095 36.36692805
+  37.86284881 39.36255873 40.86254215 42.36254149 43.86254148 45.36254148
+  46.86254148 48.36254148         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [32.33311684 32.33413267 32.34808168 32.50376585 33.30091689 34.67691526
+  36.16562579 37.66479616 39.164747   40.66474496 42.16474492 43.66474492
+  45.16474492 46.66474492 48.16474492         nan         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [31.24975114 31.25006762 31.25477526 31.31493296 31.78538521 33.00022148
+  34.46946032 35.96710001 37.46695479 38.9669485  40.46694836 41.96694836
+  43.46694836 44.96694836 46.46694836 47.96694836         nan         nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [30.16642122 30.16651234 30.1680221  30.18934074 30.41432922 31.35725756
+  32.77626627 34.26959875 35.76917164 37.26915226 38.7691518  40.2691518
+  41.7691518  43.2691518  44.7691518  46.2691518  47.7691518          nan
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [29.08310204 29.08312537 29.0835759  29.09066443 29.18106399 29.78923079
+  31.09127757 32.57266626 34.07141623 35.57135672 37.07135525 38.57135525
+  40.07135525 41.57135525 43.07135525 44.57135525 46.07135525 47.57135525
+          nan         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [27.99978578 27.99979076 27.99991133 28.00210803 28.03434073 28.35006678
+  29.42808327 30.87738126 32.37374565 33.87356345 35.37355869 36.87355869
+  38.37355869 39.87355869 41.37355869 42.87355869 44.37355869 45.87355869
+  47.37355869         nan         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [26.91647019 26.91647098 26.91649818 26.91711358 26.92761181 27.06101323
+  27.81774172 29.18680867 30.67633331 32.17577758 33.67576213 35.17576213
+  36.67576213 38.17576213 39.67576213 41.17576213 42.67576213 44.17576213
+  45.67576213 47.17576213         nan         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [25.83315471 25.83315478 25.83315939 25.83330636 25.83639854 25.88439349
+  26.31287481 27.50937012 28.97970301 30.47801564 31.97796557 33.47796557
+  34.97796557 36.47796557 37.97796557 39.47796557 40.97796557 42.47796557
+  43.97796557 45.47796557 46.97796557         nan         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [24.74983924 24.74983924 24.74983968 24.7498664  24.75065056 24.76580651
+  24.95811824 25.86639263 27.28542182 28.78033126 30.28016902 31.78016902
+  33.28016902 34.78016902 36.28016902 37.78016902 39.28016902 40.78016902
+  42.28016902 43.78016902 45.28016902 46.78016902         nan         nan
+          nan         nan         nan         nan         nan         nan]
+ [23.66652376 23.66652376 23.66652376 23.66652655 23.66668018 23.67079516
+  23.74070066 24.30212049 25.59808722 27.08289814 28.58237246 30.08237246
+  31.58237246 33.08237246 34.58237246 36.08237246 37.58237246 39.08237246
+  40.58237246 42.08237246 43.58237246 45.08237246 46.58237246         nan
+          nan         nan         nan         nan         nan         nan]
+ [22.58320829 22.58320829 22.58320829 22.58320829 22.58322588 22.58410033
+  22.60506295 22.87453728 23.93056705 25.38627805 26.8845759  28.3845759
+  29.8845759  31.3845759  32.8845759  34.3845759  35.8845759  37.3845759
+  38.8845759  40.3845759  41.8845759  43.3845759  44.8845759  46.3845759
+          nan         nan         nan         nan         nan         nan]
+ [21.49989282 21.49989282 21.49989282 21.49989282 21.49989282 21.50000366
+  21.50490913 21.60340081 22.31478686 23.69227889 25.18677934 26.68677934
+  28.18677934 29.68677934 31.18677934 32.68677934 34.18677934 35.68677934
+  37.18677934 38.68677934 40.18677934 41.68677934 43.18677934 44.68677934
+  46.18677934         nan         nan         nan         nan         nan]
+ [20.41657735 20.41657735 20.41657735 20.41657735 20.41657735 20.41657735
+  20.41727559 20.44394505 20.80962699 22.00662916 23.48898279 24.98898279
+  26.48898279 27.98898279 29.48898279 30.98898279 32.48898279 33.98898279
+  35.48898279 36.98898279 38.48898279 39.98898279 41.48898279 42.98898279
+  44.48898279 45.98898279         nan         nan         nan         nan]
+ [19.33326188 19.33326188 19.33326188 19.33326188 19.33326188 19.33326188
+  19.33326188 19.33764816 19.46880845 20.34661132 21.79118623 23.29118623
+  24.79118623 26.29118623 27.79118623 29.29118623 30.79118623 32.29118623
+  33.79118623 35.29118623 36.79118623 38.29118623 39.79118623 41.29118623
+  42.79118623 44.29118623 45.79118623         nan         nan         nan]
+ [18.24994641 18.24994641 18.24994641 18.24994641 18.24994641 18.24994641
+  18.24994641 18.24994641 18.27702866 18.75730653 20.09338967 21.59338967
+  23.09338967 24.59338967 26.09338967 27.59338967 29.09338967 30.59338967
+  32.09338967 33.59338967 35.09338967 36.59338967 38.09338967 39.59338967
+  41.09338967 42.59338967 44.09338967 45.59338967         nan         nan]
+ [17.16663094 17.16663094 17.16663094 17.16663094 17.16663094 17.16663094
+  17.16663094 17.16663094 17.16663094 17.31878286 18.39559311 19.89559311
+  21.39559311 22.89559311 24.39559311 25.89559311 27.39559311 28.89559311
+  30.39559311 31.89559311 33.39559311 34.89559311 36.39559311 37.89559311
+  39.39559311 40.89559311 42.39559311 43.89559311 45.39559311         nan]
+ [16.08331547 16.08331547 16.08331547 16.08331547 16.08331547 16.08331547
+  16.08331547 16.08331547 16.08331547 16.08331547 16.69779656 18.19779656
+  19.69779656 21.19779656 22.69779656 24.19779656 25.69779656 27.19779656
+  28.69779656 30.19779656 31.69779656 33.19779656 34.69779656 36.19779656
+  37.69779656 39.19779656 40.69779656 42.19779656 43.69779656 45.19779656]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./myst/dhr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="dhr_functions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="dhr_simulation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simulation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Angelo Santos<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
