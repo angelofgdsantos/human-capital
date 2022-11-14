@@ -406,7 +406,7 @@ def discrete_probs(theta = [0.03,4], Tm = 30, M=10, I = 50):
             prob_sim[t,d+1] = prob_sim[t,d+1] + prob_w_t_d*prob_mass   # Same as (214) but now with prob to work
     return prob_sim
 
-def Log_likelihood(data, b_guess, mu_guess, n = 10, group = 'treatment'):
+def Log_likelihood(data, b_guess, mu_guess):
     """
     
     This function does the log likehood iteration for the estimation using the parameters grid
@@ -415,9 +415,7 @@ def Log_likelihood(data, b_guess, mu_guess, n = 10, group = 'treatment'):
         data (_type_): Data simulated for the group of choice
         b_guess (_type_): Lower bound for beta guess
         mu_guess (_type_): Lower bound for mu guess
-        n (int, optional): Size of the grid. Defaults to 10.
-        group (str, optional): Group of simulation. Defaults to 'treatment'.
-
+        
     Returns:
         Dataframe: Dataframe with parameters and log likelihood result
     """
@@ -548,8 +546,8 @@ def countour_data(n1,n2):
     return Mp, Ip, Cp, Dp
 
 # PLOTTING
-def simulation_plot(s_plot = 5, nb_sim = 100, p = 'nipy_spectral_r', sim_nb = [0,20,40,60,80,99], group = 'treatment'):
-    d_means, L_dec, d_dec, d1_dec, e_dec, u_dec, _= simulate_data()
+def simulation_plot(s_plot = 5, p = 'nipy_spectral_r', sim_nb = [0,20,40,60,80,99], group = 'treatment'):
+    _, _, d_dec, _, _, _, _= simulate_data()
     sims = []
     for s in sim_nb:    
         plot_frame = {}
@@ -560,7 +558,7 @@ def simulation_plot(s_plot = 5, nb_sim = 100, p = 'nipy_spectral_r', sim_nb = [0
         sims.append(sim)
     
     sims = pd.concat(sims, axis = 0).reset_index().drop('index', axis = 1)
-    sns.lineplot(data = sims, x = sims.columns[0], y = sims.columns[1], hue = sims.columns[2], palette= 'nipy_spectral_r' ).set(title = 'Simulation Histories')    
+    sns.lineplot(data = sims, x = sims.columns[0], y = sims.columns[1], hue = sims.columns[2], palette= p ).set(title = 'Simulation Histories')    
     sns.despine(left=False, bottom=False)
     if group == 'treatment':
         plotname = 'simulation_histories_'+str(s_plot)+'_sim_control.png'
@@ -569,8 +567,8 @@ def simulation_plot(s_plot = 5, nb_sim = 100, p = 'nipy_spectral_r', sim_nb = [0
     plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/images/dhr/'+plotname)
     plt.close()
 
-def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group = 'treatment'):
-    probs_w, probs_l, eps_t, eve_w, eve_l, vf = model_solution()
+def t_graphs(p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group = 'treatment'):
+    probs_w, _, _, _, _, vf = model_solution()
     prob_sim = discrete_probs()
     t_frames = []
     for t in ts:
@@ -585,7 +583,7 @@ def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group =
     
     # PLot EVs
     ts_frames = pd.concat(t_frames, axis = 0).reset_index().drop('index', axis = 1)
-    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[1], hue = ts_frames.columns[-1], palette= 'nipy_spectral_r' ).set(title = 'EV(t,d), x=days-attended, z=days-attended-so-far')    
+    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[1], hue = ts_frames.columns[-1], palette= p ).set(title = 'EV(t,d), x=days-attended, z=days-attended-so-far')    
     sns.despine(left=False, bottom=False)
     if group == 'treatment':
         plotname = 'EVs.png'
@@ -595,7 +593,7 @@ def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group =
     plt.close()
     
     # Plot Probability of days worked
-    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[2], hue = ts_frames.columns[-1], palette= 'nipy_spectral_r' ).set(title = 'Prob(d|t), x=days-attended, y=probability')    
+    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[2], hue = ts_frames.columns[-1], palette= p ).set(title = 'Prob(d|t), x=days-attended, y=probability')    
     sns.despine(left=False, bottom=False)
     if group == 'treatment':
         plotname = 'prob_days_worked.png'
@@ -605,7 +603,7 @@ def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group =
     plt.close()
 
     # Plot Probability of working
-    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[3], hue = ts_frames.columns[-1], palette= 'nipy_spectral_r' ).set(title = 'Prob(L=0|t,d), x=days-attended, y=probability')    
+    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[3], hue = ts_frames.columns[-1], palette= p ).set(title = 'Prob(L=0|t,d), x=days-attended, y=probability')    
     sns.despine(left=False, bottom=False)
     if group == 'treatment':
         plotname = 'prob_working.png'

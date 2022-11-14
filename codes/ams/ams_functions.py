@@ -478,7 +478,10 @@ def discrete_probs(age_max = 10):
             prob_sim[age,edu+1] = prob_sim[age,edu+1] + (prob_progress(edu)*prob_s_age_edu)*prob_mass # Same as (214) but now with prob to work
     return prob_sim
 
-################# PLOTTING 
+#################################################
+################# PLOTTING ######################
+#################################################
+
 def t_graphs(p = 'nipy_spectral_r',  ts = [0,3,5,6,9], group = 'treatment'):
     _, probs_s, _, _, _, vf= solution()
     prob_sim = discrete_probs()
