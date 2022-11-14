@@ -57,7 +57,7 @@ def Log_likelihood(data, b_guess, mu_guess, group = 'treatment'):
 ############################################################################### 1 - SIMULATED DATA
 np.random.seed(1996)
 sim_nb = 100
-os.chdir('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/codes_DHR')
+os.chdir('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/untitled folder')
 exec(open("DHR_model_solution_both.py").read())
 data = pd.read_pickle('simulation_'+str(sim_nb)+'_treatment.pkl')
 data = data.to_dict('records')
@@ -82,6 +82,6 @@ print("Elapsed (with compilation) = {}s".format((end - start)))
 sns.lineplot(data = log_values, x = 'mu', y = (log_values['likelihood']*-1), hue = 'beta', palette= 'nipy_spectral_r' ).set(title = 'Estimation using Likelihood Minimization')    
 sns.despine(left=False, bottom=False)
 plotname = 'MLE.png'
-plt.savefig('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/plots/'+plotname)
+plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/plots/'+plotname)
 plt.close()
 # %%

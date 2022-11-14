@@ -426,6 +426,11 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilities-matrices">
+   Probabilities matrices
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -476,6 +481,11 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilities-matrices">
+   Probabilities matrices
+  </a>
  </li>
 </ul>
 
@@ -707,10 +717,98 @@ title="Print to PDF"
 [1000 rows x 8 columns]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>You can see that the dataframes are equal.</p>
 </section>
+</section>
+<section id="probabilities-matrices">
+<h2>Probabilities matrices<a class="headerlink" href="#probabilities-matrices" title="Permalink to this heading">#</a></h2>
+<p>Now we will simulate the probabilities based on our simulated data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probs_s</span> <span class="o">=</span> <span class="n">ams</span><span class="o">.</span><span class="n">solution</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">prob_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">age_max</span><span class="p">,</span><span class="n">age_max</span><span class="p">))</span>
+<span class="n">prob_sim</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Everybody is the same in the begining </span>
+
+<span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">age_max</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">edu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+        <span class="n">prob_mass</span> <span class="o">=</span> <span class="n">prob_sim</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span> <span class="c1"># Mass of students in age 0 and with edu 1</span>
+        <span class="n">prob_s_age_edu</span> <span class="o">=</span> <span class="n">probs_s</span><span class="p">[</span><span class="n">age</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span> <span class="c1"># P(L = 0 | t = t-1, d = d)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">prob_s_age_edu</span><span class="p">):</span>    <span class="c1"># Maybe is not possible, but I defined as nan in the model solution</span>
+                <span class="n">prob_s_age_edu</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="n">prob_sim</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span>   <span class="o">=</span> <span class="n">prob_sim</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">edu</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">prob_s_age_edu</span><span class="p">)</span><span class="o">*</span><span class="n">prob_mass</span> <span class="o">+</span> \
+                              <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ams</span><span class="o">.</span><span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">))</span><span class="o">*</span><span class="n">prob_s_age_edu</span><span class="p">)</span><span class="o">*</span><span class="n">prob_mass</span>      <span class="c1"># Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure</span>
+        <span class="n">prob_sim</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">edu</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">prob_sim</span><span class="p">[</span><span class="n">age</span><span class="p">,</span><span class="n">edu</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">ams</span><span class="o">.</span><span class="n">prob_progress</span><span class="p">(</span><span class="n">edu</span><span class="p">)</span><span class="o">*</span><span class="n">prob_s_age_edu</span><span class="p">)</span><span class="o">*</span><span class="n">prob_mass</span> <span class="c1"># Same as (214) but now with prob to work</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use a function to calculate discrete probabilities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob_sim</span> <span class="o">=</span> <span class="n">ams</span><span class="o">.</span><span class="n">discrete_probs</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prob_sim</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [1.00000066e-01 8.99999934e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [1.00001110e-02 1.80000102e-01 8.09999787e-01 0.00000000e+00
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [1.00019368e-03 2.70004262e-02 2.42999903e-01 7.28999477e-01
+  0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [1.00354846e-04 3.60126474e-03 4.86006713e-02 2.91598849e-01
+  6.56098860e-01 0.00000000e+00 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [1.04090611e-05 4.53938035e-04 8.10392099e-03 7.28986030e-02
+  3.28046228e-01 5.90486900e-01 0.00000000e+00 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [1.82958733e-06 5.95118222e-05 1.24075146e-03 1.45804498e-02
+  9.84079051e-02 3.54278094e-01 5.31431458e-01 0.00000000e+00
+  0.00000000e+00 0.00000000e+00]
+ [7.46853746e-07 1.96765498e-05 2.09304680e-04 2.68436462e-03
+  2.29358896e-02 1.23945793e-01 3.71941004e-01 4.78263221e-01
+  0.00000000e+00 0.00000000e+00]
+ [5.24250772e-07 1.29009241e-05 1.11497593e-04 5.71018664e-04
+  5.68416388e-03 3.25452241e-02 1.48419947e-01 4.54058688e-01
+  3.58596035e-01 0.00000000e+00]
+ [4.60830022e-07 1.11206781e-05 1.01415775e-04 2.04580307e-04
+  2.59056039e-03 1.35006688e-02 4.11551927e-02 2.45432603e-01
+  4.28644222e-01 2.68359176e-01]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will plot the simulation results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ams</span><span class="o">.</span><span class="n">t_graphs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default">
+<img alt="../../_images/EVs1.png" src="../../_images/EVs1.png" />
+</figure>
+<figure class="align-default">
+<img alt="../../_images/prob_days_worked1.png" src="../../_images/prob_days_worked1.png" />
+</figure>
+<figure class="align-default">
+<img alt="../../_images/prob_working1.png" src="../../_images/prob_working1.png" />
+</figure>
 </section>
 </section>
 

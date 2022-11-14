@@ -6,6 +6,14 @@ Packages
 import numpy as np
 import pandas as pd
 import ams_functions as ams
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+plt.rcParams['figure.dpi'] = 500
+plt.rcParams['savefig.dpi'] = 500
+sns.set_style('ticks')
+sns.despine(left=False, bottom=True)
+sns.set_context("paper")
 '''
 
 Using the model solution to get the vf matrices.
@@ -129,15 +137,12 @@ for i in range(sim):
     simulated_data.append(s)
     
 simulated_data = pd.concat(simulated_data, axis = 0).reset_index().drop('index', axis = 1)
-
 '''
 
 We also can replicate this using the function from the ams_functions file
 
 '''
-
 sim = ams.simulation()
-
 '''
 
 Now we will simulate the probabilities based on our simulated data
@@ -155,10 +160,19 @@ for age in range(1,age_max):
                 prob_s_age_edu = 0
         else:
             pass
-        prob_sim[age,edu]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
-        prob_sim[age,edu+1] = prob_sim[age,edu+1] + prob_s_age_edu*prob_mass   # Same as (214) but now with prob to work
+        prob_sim[age,edu]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass + \
+                              ((1 - ams.prob_progress(edu))*prob_s_age_edu)*prob_mass      # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
+        prob_sim[age,edu+1] = prob_sim[age,edu+1] + (ams.prob_progress(edu)*prob_s_age_edu)*prob_mass # Same as (214) but now with prob to work
+'''
 
-        
-            
-        
+Use a function to calculate discrete probabilities
 
+'''
+prob_sim = ams.discrete_probs()
+prob_sim
+'''
+
+Now we will plot the simulation results
+
+'''    
+ams.t_graphs()

@@ -174,7 +174,7 @@ def simulation_plot(s_plot = 5, nb_sim = 100, p = 'nipy_spectral_r', sim_nb = [0
         plotname = 'simulation_histories_'+str(s_plot)+'_sim_control.png'
     else:
         plotname = 'simulation_histories_'+str(s_plot)+'_sim_control.png'
-    plt.savefig('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/plots/'+plotname)
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/plots/'+plotname)
     plt.close()
 
 def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group = 'treatment'):
@@ -197,7 +197,7 @@ def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group =
         plotname = 'EVs.png'
     else:
         plotname = 'EVs_control.png'
-    plt.savefig('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/plots/'+plotname)
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/plots/'+plotname)
     plt.close()
     
     # Plot Probability of days worked
@@ -207,7 +207,7 @@ def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group =
         plotname = 'prob_days_worked.png'
     else:
         plotname = 'prob_days_worked_control.png'
-    plt.savefig('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/plots/'+plotname)
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/plots/'+plotname)
     plt.close()
 
     # Plot Probability of working
@@ -217,7 +217,7 @@ def t_graphs(t_plot = 5, p = 'nipy_spectral_r', ts = [0,10,15,20,25,29], group =
         plotname = 'prob_working.png'
     else:
         plotname = 'prob_working_control.png'
-    plt.savefig('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/plots/'+plotname)
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/plots/'+plotname)
     plt.close()
 
 ############################################################################### PARAMETERS - MODEL
@@ -325,7 +325,7 @@ for g in ['treatment', 'control']:
         simulated_data.append(s)
         
     simulated_data = pd.concat(simulated_data, axis = 0).reset_index().drop('index', axis = 1)
-    os.chdir('/Users/angelosantos/Library/CloudStorage/OneDrive-SharedLibraries-UniversityOfHouston/H_20223_ECON_7395_20093 - angelo_santos/DHR/data_created/')
+    os.chdir('/Users/angelosantos/Documents/GitHub/human-capital/codes/dhr/data')
     simulated_data.to_pickle('simulation_'+str(sim_nb)+'_'+g+'.pkl')
     simulated_data.to_csv('simulation_'+str(sim_nb)+'_'+g+'.csv', index = False)
 

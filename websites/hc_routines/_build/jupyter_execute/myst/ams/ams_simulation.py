@@ -178,3 +178,50 @@ print(sim)
 
 
 # You can see that the dataframes are equal.
+# 
+# ## Probabilities matrices
+# 
+# Now we will simulate the probabilities based on our simulated data
+
+# In[8]:
+
+
+probs_s = ams.solution()[1]
+prob_sim = np.zeros((age_max,age_max))
+prob_sim[0,0] = 1 # Everybody is the same in the begining 
+
+for age in range(1,age_max):
+    for edu in range(age):
+        prob_mass = prob_sim[age-1,edu] # Mass of students in age 0 and with edu 1
+        prob_s_age_edu = probs_s[age-1,edu] # P(L = 0 | t = t-1, d = d)
+        if np.isnan(prob_s_age_edu):    # Maybe is not possible, but I defined as nan in the model solution
+                prob_s_age_edu = 0
+        else:
+            pass
+        prob_sim[age,edu]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass +                               ((1 - ams.prob_progress(edu))*prob_s_age_edu)*prob_mass      # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
+        prob_sim[age,edu+1] = prob_sim[age,edu+1] + (ams.prob_progress(edu)*prob_s_age_edu)*prob_mass # Same as (214) but now with prob to work
+
+
+# Use a function to calculate discrete probabilities
+
+# In[9]:
+
+
+prob_sim = ams.discrete_probs()
+print(prob_sim)
+
+
+# Now we will plot the simulation results
+
+# In[10]:
+
+
+ams.t_graphs()
+
+
+# ```{figure} ../../images/ams/EVs.png
+# ```
+# ```{figure} ../../images/ams/prob_days_worked.png
+# ```
+# ```{figure} ../../images/ams/prob_working.png
+# ```

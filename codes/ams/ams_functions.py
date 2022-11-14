@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 from numba import njit
+import seaborn as sns
+from matplotlib import pyplot as plt
+
 
 @njit
 def wage(age = 10, edu = 5, 
@@ -264,12 +267,12 @@ def solution(age_max = 10):
 
     Returns:
         Tuple: A tuple with the following:
-               - probs_w: Probability matrix of working (index 0)
-               - probs_s: Probability matrix of going to school (index 1)
-               - eps_t: The matrix with the threshold for deciding between schooling and working (index 2)
-               - eve_w: EV matrix for working (index 3)
-               - eve_s: EV matrix for schooling (index 4)
-               - vf: Value function matrix (index 5)
+            - probs_w: Probability matrix of working (index 0)
+            - probs_s: Probability matrix of going to school (index 1)
+            - eps_t: The matrix with the threshold for deciding between schooling and working (index 2)
+            - eve_w: EV matrix for working (index 3)
+            - eve_s: EV matrix for schooling (index 4)
+             - vf: Value function matrix (index 5)
 
     """
     # Probabilities of working
@@ -445,3 +448,78 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
         
     simulated_data = pd.concat(simulated_data, axis = 0).reset_index().drop('index', axis = 1)
     return simulated_data
+
+@njit
+def discrete_probs(age_max = 10):
+    """
+    
+    This function calculate the probabilities based on the model solution
+
+    Args:
+        age_max (int, optional): Maximum additional years of education. Defaults to 10.
+
+    Returns:
+        Matrix: Matrix with probabilities
+    """
+    probs_s = solution()[1]
+    prob_sim = np.zeros((age_max,age_max))
+    prob_sim[0,0] = 1 # Everybody is the same in the begining 
+
+    for age in range(1,age_max):
+        for edu in range(age):
+            prob_mass = prob_sim[age-1,edu] # Mass of students in age 0 and with edu 1
+            prob_s_age_edu = probs_s[age-1,edu] # P(L = 0 | t = t-1, d = d)
+            if np.isnan(prob_s_age_edu):    # Maybe is not possible, but I defined as nan in the model solution
+                    prob_s_age_edu = 0
+            else:
+                pass
+            prob_sim[age,edu]   = prob_sim[age,edu] + (1-prob_s_age_edu)*prob_mass + \
+                                ((1 - prob_progress(edu))*prob_s_age_edu)*prob_mass      # Adding the 0 to the teachers proportion multiplied by the conditional prob to leisure
+            prob_sim[age,edu+1] = prob_sim[age,edu+1] + (prob_progress(edu)*prob_s_age_edu)*prob_mass # Same as (214) but now with prob to work
+    return prob_sim
+
+################# PLOTTING 
+def t_graphs(p = 'nipy_spectral_r',  ts = [0,3,5,6,9], group = 'treatment'):
+    _, probs_s, _, _, _, vf= solution()
+    prob_sim = discrete_probs()
+    t_frames = []
+    for t in ts:
+        plot_frame = {}
+        plot_frame['Years attended'] = list(range(t+1))
+        plot_frame['EV (t,edu)'] = list(vf[t,:t+1])
+        plot_frame['Probability of education contional on age'] = list(prob_sim[t,:t+1])
+        plot_frame['Probability of education given t and age'] = list(probs_s[t,:t+1])
+        sim = pd.DataFrame(plot_frame)
+        sim['Age'] = t
+        t_frames.append(sim) 
+
+    # PLot EVs
+    ts_frames = pd.concat(t_frames, axis = 0).reset_index().drop('index', axis = 1)
+    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[1], hue = ts_frames.columns[-1], palette= p ).set(title = 'EV(t,d), x=days-attended, z=days-attended-so-far')    
+    sns.despine(left=False, bottom=False)
+    if group == 'treatment':
+        plotname = 'EVs.png'
+    else:
+        plotname = 'EVs_control.png'
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/images/ams/'+plotname)
+    plt.close()
+
+    # Plot Probability of days worked
+    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[2], hue = ts_frames.columns[-1], palette= p).set(title = 'Prob(ED|t), x=ED-attained, y=probability')    
+    sns.despine(left=False, bottom=False)
+    if group == 'treatment':
+        plotname = 'prob_days_worked.png'
+    else:
+        plotname = 'prob_days_worked_control.png'
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/images/ams/'+plotname)
+    plt.close()
+
+    # Plot Probability of working
+    sns.lineplot(data = ts_frames, x = ts_frames.columns[0], y = ts_frames.columns[3], hue = ts_frames.columns[-1], palette= p ).set(title = 'Prob(WK=0|t,ED), x=ED, y=probability')    
+    sns.despine(left=False, bottom=False)
+    if group == 'treatment':
+        plotname = 'prob_working.png'
+    else:
+        plotname = 'prob_working_control.png'
+    plt.savefig('/Users/angelosantos/Documents/GitHub/human-capital/images/ams/'+plotname)
+    plt.close()
