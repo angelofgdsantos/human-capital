@@ -334,6 +334,7 @@ def solution(age_max = 10):
                 vf[age-1,edu] = probs_s[age-1,edu]*eve_s[age-1,edu] + probs_w[age-1,edu]*eve_w[age-1,edu]
     return probs_w, probs_s, eps_t, eve_w, eve_s, vf
 
+@njit
 def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, β = 0.9):
     """
     
@@ -448,6 +449,7 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
         
     simulated_data = pd.concat(simulated_data, axis = 0).reset_index().drop('index', axis = 1)
     return simulated_data
+
 
 @njit
 def discrete_probs(age_max = 10):
