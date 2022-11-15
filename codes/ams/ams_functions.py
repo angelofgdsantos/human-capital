@@ -130,7 +130,7 @@ def edu_cost(age = 10, edu = 5,  mom_edu = 1, cost_sec = 9.5,
     return cost
 
 @njit
-def utility(age = 10, edu = 5, school = 1, ϵ = 0, δ = 0.134, μ = -8.706):
+def utility(age = 10, edu = 5, school = 1, g = 3.334, b_mom = -0.746, ϵ = 0, δ = 0.134, μ = -8.706):
     """
     
     This function measures the utility gain for the child based on the choice of schooling or working
@@ -147,7 +147,8 @@ def utility(age = 10, edu = 5, school = 1, ϵ = 0, δ = 0.134, μ = -8.706):
     Returns:
         u (float): Utility gain from the decision
     """
-    u = ((δ*budget_constraint(age, edu, school)) - edu_cost(age, edu, μ = μ) + ϵ)*school + (δ*budget_constraint(age, edu, school))*(1 - school)
+    u = ((δ*budget_constraint(age, edu, school, g=g)) - edu_cost(age, edu, μ = μ, b_mom = b_mom) + ϵ)*school + \
+        (δ*budget_constraint(age, edu, school, g=g))*(1 - school)
     return u
 
 @njit
@@ -169,7 +170,7 @@ def terminal_v(α1 = 356.3809 , α2 = 0.2792, edu = 5):
     return tv
 
 @njit
-def value_function(age = 10, edu = 5, school = 1, EV = np.nan, b = 0.9):
+def value_function(age = 10, edu = 5, school = 1, g = 3.334, μ = -8.7060, b_mom = -0.746, EV = np.nan, b = 0.9):
     """
     
     Value function
@@ -184,7 +185,7 @@ def value_function(age = 10, edu = 5, school = 1, EV = np.nan, b = 0.9):
     Returns:
         float: value function value   
     """    
-    v = utility(age, edu, school) + b*EV
+    v = utility(age, edu, school, g = g, μ = μ, b_mom = b_mom) + b*EV
     return v
 
 @njit
@@ -256,7 +257,7 @@ def prob_progress(edu=0):
     return p
 
 @njit
-def solution(age_max = 10): 
+def solution(age_max = 10, theta = np.array([3.334, -8.7060, -0.746])): 
     """
     
     This function is the model solution 
@@ -275,6 +276,10 @@ def solution(age_max = 10):
              - vf: Value function matrix (index 5)
 
     """
+    g     = theta[0]
+    μ     = theta[1]
+    b_mom = theta[2]
+    
     # Probabilities of working
     probs_w = np.empty((age_max,age_max)) 
     probs_w[:] = np.nan         
@@ -310,12 +315,14 @@ def solution(age_max = 10):
                 if age == age_max: #last period situation
                     tv_s =  prob_progress(edu)*(terminal_v(edu = edu+1)) + (1 - prob_progress(edu))*(terminal_v(edu = edu)) 
                     tv_w =  terminal_v(edu = edu)
-                    eps_t[age-1,edu] = value_function(age,edu,1, EV = tv_s) - value_function(age,edu,0, EV = tv_w)
+                    eps_t[age-1,edu] = value_function(age,edu, school = 1, EV = tv_s, g = g, μ = μ, b_mom = b_mom) - \
+                                       value_function(age,edu, school = 0, EV = tv_w, g = g, μ = μ, b_mom = b_mom)
                                     
                 else:                #Other periods will take the difference between value functions
                     tv_s = prob_progress(edu)*(vf[age, edu+1]) + (1 - prob_progress(edu))*(vf[age,edu])
                     tv_w = vf[age, edu]
-                    eps_t[age-1,edu] = value_function(age,edu,1, EV = tv_s) - value_function(age,edu,0, EV = tv_w)
+                    eps_t[age-1,edu] = value_function(age,edu, school = 1, EV = tv_s, g = g, μ = μ, b_mom = b_mom) - \
+                                       value_function(age,edu, school = 0, EV = tv_w, g = g, μ = μ, b_mom = b_mom)
                 
                 # Now we will calcute the probabilities of schooling and working based on the thresholds                     
                 probs_s[age-1,edu] = logistic(eps = eps_t[age-1,edu])
@@ -324,18 +331,19 @@ def solution(age_max = 10):
                 # Using the thresholds we will calculate the EVs
                 if age == age_max:
                     u_t = trunc_change(eps = eps_t[age-1,edu])
-                    eve_s[age-1,edu] = value_function(age,edu,1, EV = tv_s) + trunc_school(ϵ_threshold = eps_t[age-1,edu], u_threshold = u_t)
-                    eve_w[age-1,edu] = value_function(age,edu,0, EV = tv_w)
+                    eve_s[age-1,edu] = value_function(age,edu, school = 1, EV = tv_s, g = g, μ = μ, b_mom = b_mom) + \
+                                       trunc_school(ϵ_threshold = eps_t[age-1,edu], u_threshold = u_t)
+                    eve_w[age-1,edu] = value_function(age,edu, school = 0, EV = tv_w, g = g, μ = μ, b_mom = b_mom)
                 else:
                     u_t = trunc_change(eps = eps_t[age-1,edu])
-                    eve_s[age-1,edu] = value_function(age,edu,1, EV = tv_s) + trunc_school(ϵ_threshold = eps_t[age-1,edu], u_threshold = u_t)
-                    eve_w[age-1,edu] = value_function(age,edu,0, EV = tv_w)
+                    eve_s[age-1,edu] = value_function(age,edu, school = 1, EV = tv_s, g = g, μ = μ, b_mom = b_mom) + \
+                                       trunc_school(ϵ_threshold = eps_t[age-1,edu], u_threshold = u_t)
+                    eve_w[age-1,edu] = value_function(age,edu, school = 0, EV = tv_w, g = g, μ = μ, b_mom = b_mom)
                 
                 vf[age-1,edu] = probs_s[age-1,edu]*eve_s[age-1,edu] + probs_w[age-1,edu]*eve_w[age-1,edu]
     return probs_w, probs_s, eps_t, eve_w, eve_s, vf
 
-@njit
-def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, β = 0.9):
+def simulation(sim = 100, age_start = 6, age_max = 10, theta = np.array([3.334, -8.7060, -0.746]), ϵ_mean = 0, ϵ_sd = 1, β = 0.9):
     """
     
     This function simulates individuals using the AMS model solution as base
@@ -352,7 +360,11 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
     Returns:
         DataFrame: Simulated dataframe
     """
-    vf = solution()[5]
+    g     = theta[0]
+    μ     = theta[1]
+    b_mom = theta[2]
+    
+    vf = solution(theta = theta)[5]
 
     # Creating matrices to store our results and create a dataframe with our individual
     
@@ -408,8 +420,8 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
                 w_ev = vf[age+1, edu]
                 
             # Utility for choices                          
-            school = utility(age, edu, school=1, ϵ = e_shock) + β*s_ev
-            work   = utility(age, edu, school=0, ϵ = e_shock) + β*w_ev
+            school = utility(age, edu, school=1, ϵ = e_shock, g = g, μ = μ, b_mom = b_mom) + β*s_ev
+            work   = utility(age, edu, school=0, ϵ = e_shock, g = g, μ = μ, b_mom = b_mom) + β*w_ev
                     
             # Decision that max utility for individual
             dec = max(school, work)                                       
@@ -420,13 +432,13 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
                 else:
                     suc = 0
                 ed_next[age,s] = edu + suc
-                C[age,s] = budget_constraint(age, edu, school=1)
+                C[age,s] = budget_constraint(age, edu, school=1, g = g)
                 U[age,s] = dec
                 S_dec[age,s] = 1
             else:
                 suc = 0
                 ed_next[age,s] = edu + suc
-                C[age,s] = budget_constraint(age, edu, school=0)
+                C[age,s] = budget_constraint(age, edu, school=0, g = g)
                 U[age,s] = dec
                 S_dec[age,s] = 0
             eps[age,s] = e_shock
@@ -452,7 +464,7 @@ def simulation(sim = 100, age_start = 6, age_max = 10, ϵ_mean = 0, ϵ_sd = 1, �
 
 
 @njit
-def discrete_probs(age_max = 10):
+def discrete_probs(age_max = 10, theta = np.array([3.334, -8.7060, -0.746])):
     """
     
     This function calculate the probabilities based on the model solution
@@ -463,7 +475,7 @@ def discrete_probs(age_max = 10):
     Returns:
         Matrix: Matrix with probabilities
     """
-    probs_s = solution()[1]
+    probs_s = solution(theta = theta)[1]
     prob_sim = np.zeros((age_max,age_max))
     prob_sim[0,0] = 1 # Everybody is the same in the begining 
 
@@ -480,12 +492,49 @@ def discrete_probs(age_max = 10):
             prob_sim[age,edu+1] = prob_sim[age,edu+1] + (prob_progress(edu)*prob_s_age_edu)*prob_mass # Same as (214) but now with prob to work
     return prob_sim
 
+def Log_likelihood(data, g_guess = np.array([3.334]), μ_guess = np.array([-8.760]), b_mom_guess = [-0.746]):
+    """
+    
+    This function does the log likehood iteration for the estimation using the parameters grid
+
+    Args:
+        data (_type_): Data simulated for the group of choice
+        b_guess (_type_): Lower bound for beta guess
+        mu_guess (_type_): Lower bound for mu guess
+        
+    Returns:
+        Dataframe: Dataframe with parameters and log likelihood result
+    """
+    sim = 1
+    log_values = []
+    for g_g in g_guess:
+        for μ_g in μ_guess:
+            for mom_g in b_mom_guess:
+                dic = {}
+                theta = np.array([g_g, μ_g, mom_g])
+                probs_w, probs_s, _, _, _, _, = solution(theta=theta)
+                logL = 0
+                for i in range(len(data)):
+                    age = int(data[i]['age'])
+                    edu = int(data[i]['edu'])
+                    S = int(data[i]['School'])
+                    likelihood = np.log(probs_w[age-6,edu])*(1-S)+ np.log(probs_s[age-6,edu])*S
+                    logL = logL + likelihood 
+                dic['gamma'] =g_g 
+                dic['mu'] = μ_g
+                dic['mom'] = mom_g
+                dic['likelihood'] = logL
+                log_values.append(dic)
+                sim += 1
+    return pd.DataFrame(log_values)
+
+
 #################################################
 ################# PLOTTING ######################
 #################################################
 
-def t_graphs(p = 'nipy_spectral_r',  ts = [0,3,5,6,9], group = 'treatment'):
-    _, probs_s, _, _, _, vf= solution()
+def t_graphs(p = 'nipy_spectral_r',  ts = [0,3,5,6,9], group = 'treatment', theta = np.array([3.334, -8.7060, -0.746])):
+    _, probs_s, _, _, _, vf= solution(theta=theta)
     prob_sim = discrete_probs()
     t_frames = []
     for t in ts:
