@@ -1,5 +1,8 @@
 # Welcome to my Human Capital repo! 🙋🏽‍♂️
 
+> **Warning**
+> [Website of the project](https://angelosant0s.github.io/human-capital/md/intro.html)
+
 This repository contains my codes and routines for the human capital course. In this course we replicate models used in the papers mentioned below:
  * **DHS: Incentives Work: Getting Teachers to Come to School by Esther Duflo, Rema Hanna and Stephen P. Ryan** 
       
@@ -24,6 +27,3 @@ This repository contains my codes and routines for the human capital course. In 
     * [My Notes on the paper](notes/kw_notes.pdf)
 
   
-## External links
-The Documentation of the codes can be found [here](https://angelosant0s.github.io/human-capital/) 
-The routines can be seen [here](https://angelosant0s.github.io/human-capital/md/intro.html)
