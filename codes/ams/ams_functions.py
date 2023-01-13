@@ -6,8 +6,7 @@ from matplotlib import pyplot as plt
 
 
 @njit
-def wage(age = 10, edu = 5, 
-        w_ag_j = 27.6, q = -0.983 , a1 = 0.066 , a2 = 0.0166, b_w_ag = 0.883):
+def wage(age = 10, edu = 5, w_ag_j = 27.6, q = -0.983 , a1 = 0.066 , a2 = 0.0166, b_w_ag = 0.883):
     """
     
     This function aims to estimate the wage for the village where the child lives
@@ -72,8 +71,7 @@ def grant(edu = 5, gender = 'girl'):
     return g
 
 @njit
-def budget_constraint(age, edu, school = 1, gender = 'girl', group = 'treatment',
-           g = 3.334, b_progressa = 0.0605, hr_day = 7.9, days = 5.1, weeks = 1.7, days_weeks = 14):
+def budget_constraint(age, edu, school = 1, gender = 'girl', group = 'treatment', g = 3.334, b_progressa = 0.0605, hr_day = 7.9, days = 5.1, weeks = 1.7, days_weeks = 14):
     """
     
     This function returns the child budget constraint living in a village, conditional on working or 
@@ -103,8 +101,7 @@ def budget_constraint(age, edu, school = 1, gender = 'girl', group = 'treatment'
     return b
 
 @njit
-def edu_cost(age = 10, edu = 5,  mom_edu = 1, cost_sec = 9.5,
-             sec = 0, μ = -8.7060, b_age = 2.291, b_mom = -0.746, b_edu = -0.983, b_sec = 0.007):
+def edu_cost(age = 10, edu = 5,  mom_edu = 1, cost_sec = 9.5, sec = 0, μ = -8.7060, b_age = 2.291, b_mom = -0.746, b_edu = -0.983, b_sec = 0.007):
     """
     
     This function returns the child cost of going to school     
